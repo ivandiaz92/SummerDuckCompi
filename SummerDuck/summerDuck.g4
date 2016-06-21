@@ -1,6 +1,6 @@
 grammar summerDuck;
 
-WS: [ \n\t\r]+ -> skip;
+
 
 PROG: 'programa';
 MAIN: 'principal';
@@ -51,6 +51,8 @@ CTE_F: [0-9]* '.' [0-9]+;
 CTE_C: '"'[a-zA-Z] '"';
 
 ID: [a-zA-Z0-9]+;
+
+WS: [ \n\t\r]+ -> skip;
 
 summerduck: PROG ID PC vardec asignations fundef main
 	;

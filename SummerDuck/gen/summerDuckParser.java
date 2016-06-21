@@ -1,3 +1,4 @@
+// Generated from /Users/ivandiaz/Desktop/SummerDuckCompi/SummerDuck/summerDuck.g4 by ANTLR 4.5.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class summerDuckParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.5.3", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.5.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -20,7 +21,7 @@ public class summerDuckParser extends Parser {
 		SUMA=17, RESTA=18, MULT=19, DIV=20, LP=21, RP=22, LB=23, RB=24, LK=25, 
 		RK=26, DP=27, PC=28, COMA=29, PUNTO=30, MOD=31, IGUAL=32, MAYOR=33, MENOR=34, 
 		MAYORI=35, MENORI=36, EQUIV=37, NEG=38, DIF=39, AND=40, OR=41, CTE_BT=42, 
-		CTE_BF=43, CTE_I=44, CTE_F=45, CTE_C=46, ID=47;
+		CTE_BF=43, CTE_I=44, CTE_F=45, CTE_C=46, ID=47, WS=48;
 	public static final int
 		RULE_summerduck = 0, RULE_main = 1, RULE_vardec = 2, RULE_vardecaux = 3, 
 		RULE_type = 4, RULE_var = 5, RULE_varaux = 6, RULE_var2 = 7, RULE_varaux2 = 8, 
@@ -56,7 +57,7 @@ public class summerDuckParser extends Parser {
 		"RESTA", "MULT", "DIV", "LP", "RP", "LB", "RB", "LK", "RK", "DP", "PC", 
 		"COMA", "PUNTO", "MOD", "IGUAL", "MAYOR", "MENOR", "MAYORI", "MENORI", 
 		"EQUIV", "NEG", "DIF", "AND", "OR", "CTE_BT", "CTE_BF", "CTE_I", "CTE_F", 
-		"CTE_C", "ID"
+		"CTE_C", "ID", "WS"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -1009,7 +1010,6 @@ public class summerDuckParser extends Parser {
 		enterRule(_localctx, 26, RULE_statements);
 		try {
 			setState(178);
-			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,7,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -2605,7 +2605,6 @@ public class summerDuckParser extends Parser {
 		enterRule(_localctx, 76, RULE_factor);
 		try {
 			setState(330);
-			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,18,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -2813,7 +2812,7 @@ public class summerDuckParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\61\u015c\4\2\t\2"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\62\u015c\4\2\t\2"+
 		"\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13"+
 		"\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
