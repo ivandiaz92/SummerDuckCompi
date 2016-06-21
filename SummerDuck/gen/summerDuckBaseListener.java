@@ -97,6 +97,30 @@ public class summerDuckBaseListener implements summerDuckListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterVar2(summerDuckParser.Var2Context ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVar2(summerDuckParser.Var2Context ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterVaraux2(summerDuckParser.Varaux2Context ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVaraux2(summerDuckParser.Varaux2Context ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterFundef(summerDuckParser.FundefContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -152,6 +176,30 @@ public class summerDuckBaseListener implements summerDuckListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitStatements(summerDuckParser.StatementsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAsignations(summerDuckParser.AsignationsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAsignations(summerDuckParser.AsignationsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterVarAsign(summerDuckParser.VarAsignContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVarAsign(summerDuckParser.VarAsignContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

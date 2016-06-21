@@ -51,6 +51,18 @@ public interface summerDuckVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitVaraux(summerDuckParser.VarauxContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link summerDuckParser#var2}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVar2(summerDuckParser.Var2Context ctx);
+	/**
+	 * Visit a parse tree produced by {@link summerDuckParser#varaux2}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVaraux2(summerDuckParser.Varaux2Context ctx);
+	/**
 	 * Visit a parse tree produced by {@link summerDuckParser#fundef}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -80,6 +92,18 @@ public interface summerDuckVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitStatements(summerDuckParser.StatementsContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link summerDuckParser#asignations}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAsignations(summerDuckParser.AsignationsContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link summerDuckParser#varAsign}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVarAsign(summerDuckParser.VarAsignContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link summerDuckParser#leer}.
 	 * @param ctx the parse tree

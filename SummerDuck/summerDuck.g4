@@ -1,5 +1,6 @@
 grammar summerDuck;
 
+WS: [ \n\t\r]+ -> skip;
 
 PROG: 'programa';
 MAIN: 'principal';
@@ -43,23 +44,26 @@ DIF: '!=';
 AND: '&';
 OR: '|';
 
+CTE_BT: 'verdadero';
+CTE_BF: 'falso';
 CTE_I: [0-9];
 CTE_F: [0-9]* '.' [0-9]+;
 CTE_C: '"'[a-zA-Z] '"';
+
 ID: [a-zA-Z0-9]+;
 
-summerduck: PROG ID PC vardec fundef main
+summerduck: PROG ID PC vardec asignations fundef main
 	;
 
-main: MAIN LP RP LK vardec statements
+main: MAIN LP RP LK vardec statements RK
 	;
 
 vardec:
-	| type DP var vardecaux
+	| type DP var2 vardecaux
 	;
 
 vardecaux: PC vardec
-		 | COMA var vardecaux
+		 | COMA var2 vardecaux
 		 ;
 
 type: INT
@@ -73,6 +77,13 @@ var: ID varaux
 
 varaux:
 	  | LB CTE_I RB varaux
+	  ;
+
+var2: ID varaux2
+	;
+
+varaux2:
+	  | LB CTE_I RB varaux2
 	  ;
 
 fundef:
@@ -91,13 +102,20 @@ paramsaux2:
 		;
 
 statements:
-		| var IGUAL exp PC statements
+		| varAsign
 		| leer
 		| escribir
 		| ifelse
 		| while_statement
 		| dowhile
 		;
+
+asignations:
+    | varAsign asignations
+    ;
+
+varAsign: var IGUAL exp PC statements
+    ;
 
 leer: SCAN LP leeraux RP PC
 	;
@@ -188,6 +206,8 @@ factor:
 	| CTE_I
 	| CTE_F
 	| CTE_C
+	| CTE_BF
+	| CTE_BT
 	;
 
 functioncall: ID LP exp functioncallaux RP

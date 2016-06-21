@@ -76,6 +76,26 @@ public interface summerDuckListener extends ParseTreeListener {
 	 */
 	void exitVaraux(summerDuckParser.VarauxContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link summerDuckParser#var2}.
+	 * @param ctx the parse tree
+	 */
+	void enterVar2(summerDuckParser.Var2Context ctx);
+	/**
+	 * Exit a parse tree produced by {@link summerDuckParser#var2}.
+	 * @param ctx the parse tree
+	 */
+	void exitVar2(summerDuckParser.Var2Context ctx);
+	/**
+	 * Enter a parse tree produced by {@link summerDuckParser#varaux2}.
+	 * @param ctx the parse tree
+	 */
+	void enterVaraux2(summerDuckParser.Varaux2Context ctx);
+	/**
+	 * Exit a parse tree produced by {@link summerDuckParser#varaux2}.
+	 * @param ctx the parse tree
+	 */
+	void exitVaraux2(summerDuckParser.Varaux2Context ctx);
+	/**
 	 * Enter a parse tree produced by {@link summerDuckParser#fundef}.
 	 * @param ctx the parse tree
 	 */
@@ -125,6 +145,26 @@ public interface summerDuckListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitStatements(summerDuckParser.StatementsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link summerDuckParser#asignations}.
+	 * @param ctx the parse tree
+	 */
+	void enterAsignations(summerDuckParser.AsignationsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link summerDuckParser#asignations}.
+	 * @param ctx the parse tree
+	 */
+	void exitAsignations(summerDuckParser.AsignationsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link summerDuckParser#varAsign}.
+	 * @param ctx the parse tree
+	 */
+	void enterVarAsign(summerDuckParser.VarAsignContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link summerDuckParser#varAsign}.
+	 * @param ctx the parse tree
+	 */
+	void exitVarAsign(summerDuckParser.VarAsignContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link summerDuckParser#leer}.
 	 * @param ctx the parse tree

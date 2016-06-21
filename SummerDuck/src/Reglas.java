@@ -19,15 +19,20 @@ public class Reglas {
     public static class VarDec{
         private static int tipo;
         private static int direccion;
+        private static String id;
 
         public static void R1(){
             tipo = Type.getTipo();
         }
 
-        public static void R2(){
-            String id = Variable.getId();
-            int direccion = Compilador.varManager.declararVariable(tipo,id);
+        public static void R2(String nombre) {
+            id = nombre;
+            direccion = Compilador.varManager.declararVariable(tipo,id);
             Compilador.cuadManager.agregarCuadruplo(Instrucciones.VARDECL,direccion,-1,-1);
+        }
+
+        public static void R3(){
+            // TODO agregar dimenciones y asi
         }
     }
 
@@ -39,17 +44,18 @@ public class Reglas {
         }
 
         public static void R1(String token){
+            tipo = 0;
             switch (token){
-                case "INT":
+                case "entero":
                     Type.tipo = Compilador.ManejadorDeMemoria.Memoria.VAR_INT;
                     break;
-                case "FLOAT":
+                case "real":
                     Type.tipo = Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT;
                     break;
-                case "CHAR":
+                case "char":
                     Type.tipo = Compilador.ManejadorDeMemoria.Memoria.VAR_STRING;
                     break;
-                case "BOOL":
+                case "boleano":
                     Type.tipo = Compilador.ManejadorDeMemoria.Memoria.VAR_BOOL;
                     break;
             }        }
@@ -163,6 +169,26 @@ public class Reglas {
     public static class Escribir{
         public static void R1(){
             Compilador.cuadManager.agregarCuadruplo(Instrucciones.WRITE,-1,-1,Variable.getDireccion());
+        }
+    }
+
+
+    public static class FuncDecl{
+
+        public static void R1(){
+            Compilador.varManager.entrandoEnContextoLocal();
+        }
+
+        public static void R2(){
+            Compilador.varManager.saliendoDeContextoLocal();
+        }
+    }
+
+    public static class Constante{
+        public static int lastConstantDir = -1;
+        public static void R1(int type, String variable){
+            lastConstantDir = Compilador.varManager.declararConstante(type,variable);
+            Compilador.cuadManager.agregarCuadruplo(Instrucciones.CONSTANT,variable,-1,lastConstantDir);
         }
     }
 }

@@ -6,4 +6,6 @@ public class Instrucciones {
     public static final int ASIGNATION = 1004;
     public static final int SCAN = 1005;
     public static final int WRITE = 1006;
+    public static final int CONSTANT = 1007;
 }
+

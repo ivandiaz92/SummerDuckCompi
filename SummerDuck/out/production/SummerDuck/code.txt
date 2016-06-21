@@ -1,0 +1,20 @@
+programa wibi;
+
+entero: x,x2;
+real: y,y2;
+char: z,z2;
+boleano: m,m2;
+
+y = 3;
+
+m = true;
+m2 = false;
+
+z = "papa";
+
+principal(){
+    entero: a,a2;
+    real: b,b2;
+    char: c,c2;
+    boleano: d,d2;
+}

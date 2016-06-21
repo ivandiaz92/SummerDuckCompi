@@ -17,9 +17,12 @@ public class Errors {
         switch (error_code){
             case UNKNOWN_SCOPE:
                 return "Scope recibido no concuerda con los establecidos";
+            case UNKNOWN_TYPE:
+                return  "Tipo de dato desconocido";
             default:
                 return "Error";
         }
 
     }
 }
+

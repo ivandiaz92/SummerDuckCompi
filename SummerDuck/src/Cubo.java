@@ -9,13 +9,13 @@ public class Cubo {
         return instancia.cubito[op1][op2][oper];
     }
 
-    // Tipos de dato DIMENSION 1 y 2
+    // Tipos de dato (DIMENSION 1 y 2)
     public static int ENTERO = 10;
     public static int REAL = 11;
     public static int CARACTER = 12;
     public static int BOLEANO = 13;
 
-    // OPERADORES DIMENSION 3
+    // OPERADORES (DIMENSION 3)
     public static int SUMA = 20;  // +
     public static int RESTA = 21; // -
     public static int MULTI = 22; // *
@@ -33,7 +33,7 @@ public class Cubo {
     public static int DIF = 38; // !=
 
     // Error
-    public static int ERROR = Errors.OPERACION_ILEGAL;
+    public static int ERROR = 666;
 
     // Reglas semanticas
     public Cubo(){

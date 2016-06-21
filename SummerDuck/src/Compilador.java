@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Stack;
 
 import org.antlr.v4.runtime.ANTLRInputStream;
@@ -13,21 +12,23 @@ public class Compilador {
 
     public static void main(String[] args){
         try{
-            // Leemos el archivo
-            InputStream ios = new FileInputStream(args[1]);
-            // Parseamos el input Stream a tipo ANTLR Input Stream y lo usamos para crear el lexer
+            String fullPath = System.getProperty("user.dir") + "/" + args[0];
+
+            // Leer el archivo
+            InputStream ios = new FileInputStream(fullPath);
+            // Parsear el input Stream a tipo ANTLR Input Stream y usarlo para crear el lexer
             summerDuckLexer lxr = new summerDuckLexer(new ANTLRInputStream(ios));
-            // lo convertimos a tokens (ANTLR DOCS)
+            // convertirlo a tokens (ANTLR DOCS)
             CommonTokenStream commonTokenStream = new CommonTokenStream(lxr);
-            // Enviamos la serie de tokens al parser para comenzar la compilacion
+            // Enviar tokens al parser para empezar compilacion
             summerDuckParser summerDuckParser = new summerDuckParser(commonTokenStream);
-            // ejecutamos la primera regla
+            // ejecuta la primera regla
             summerDuckParser.SummerduckContext context = summerDuckParser.summerduck();
-            // imprimimos el archivo
+            // imprimir archivo
             cuadManager.print();
 
         }catch (FileNotFoundException e){
-            System.out.println("File: [" + args[1] + "] Not Found");
+            System.out.println("File: [" + args[0] + "] Not Found");
         }catch (IOException e){
             System.out.print("IOException: " + e.getMessage());
         }
@@ -42,19 +43,26 @@ public class Compilador {
             saltos = new Stack<>();
         }
 
-        /**
-         * Clase que encapsula los cuatro enteros de un cuadruplo
-         */
-        public class Cuadruplo{
-            private long operando, operador1,operador2;
+        //Clase que encapsula los cuatro enteros de un cuadruplo
+
+        public static class Cuadruplo{
+            public long operando,operador2;
+            public Object operador1;
 
             public void setOutput(int output) {
                 this.output = output;
             }
 
-            private int output;
+            public int output;
 
             public Cuadruplo(long operando, long operador1, long operador2, int output) {
+                this.operando = operando;
+                this.operador1 = operador1;
+                this.operador2 = operador2;
+                this.output = output;
+            }
+
+            public Cuadruplo(long operando, Object operador1, long operador2, int output){
                 this.operando = operando;
                 this.operador1 = operador1;
                 this.operador2 = operador2;
@@ -66,9 +74,8 @@ public class Compilador {
             }
         }
 
-        /**
-         * Imprime la lista de cuadriplos en un archivo
-         */
+        //Imprime la lista de cuadriplos en un archivo
+
         public void print() throws FileNotFoundException, UnsupportedEncodingException {
             PrintWriter writer = new PrintWriter("cuadruplos.txt", "UTF-8");
             for (Cuadruplo cuadruplo : cuadruplos) {
@@ -77,13 +84,14 @@ public class Compilador {
             writer.close();
         }
 
-        /**
-         * Agregamos un cuadruplo a la lista de cuadruplos
-         */
+        //Agregar un cuadruplo a la lista de cuadruplos
+
         public void agregarCuadruplo(long operando, long operador1, long operador2, int output){
             cuadruplos.add(new Cuadruplo(operando,operador1,operador2,output));
         }
-
+        public void agregarCuadruplo(long operando, Object operador1, long operador2, int output){
+            cuadruplos.add(new Cuadruplo(operando,operador1,operador2,output));
+        }
         public void registrarSalto(){
             registrarSalto(cuadruplos.size());
         }
@@ -115,7 +123,6 @@ public class Compilador {
             variablesTemporales = new TablaVariables();
             variablesConstantes = new TablaVariables();
             contextoGlobal = true;
-            entrandoEnContextoLocal();
         }
 
         public void entrandoEnContextoLocal(){
@@ -165,6 +172,15 @@ public class Compilador {
             }
             return Errors.VARIABLE_REDEFINIDA;
         }
+
+        public int declararConstante(int tipo, String id){
+            if(variablesConstantes.obtenerDireccionVar(id) != Errors.VARIABLE_NO_DEFINIDA){
+                return  variablesConstantes.obtenerDireccionVar(id);
+            }
+            int direccion = memManager.reservarEspacioEnMemoria(ManejadorDeMemoria.Memoria.SCOPE_CONSTANTE,tipo);
+            variablesConstantes.agregarVariable(tipo,id,direccion);
+            return direccion;
+        }
     }
 
     public static class ManejadorDeMemoria{
@@ -211,8 +227,8 @@ public class Compilador {
             public static final int SCOPE_LOCAL = 2;
             public static final int SCOPE_TEMPORAL = 3;
             public static final int SCOPE_CONSTANTE = 4;
-            
-            
+
+
             /*
             Enteros (2000)
             Flotantes (2000)
@@ -422,3 +438,4 @@ public class Compilador {
         }
     }
 }
+
