@@ -158,11 +158,11 @@ public class summerDuckParser extends Parser {
 			setState(85);
 			vardec();
 			setState(86);
-			asignations();
+			asignations();Reglas.Programa.R1();
 			setState(87);
 			fundef();
 			setState(88);
-			main();
+			Reglas.Programa.R2(); main(); Reglas.Programa.R3();
 			}
 		}
 		catch (RecognitionException re) {

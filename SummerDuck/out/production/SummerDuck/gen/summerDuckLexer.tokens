@@ -45,6 +45,7 @@ CTE_I=44
 CTE_F=45
 CTE_C=46
 ID=47
+WS=48
 'programa'=1
 'principal'=2
 'entero'=3

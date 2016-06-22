@@ -46,7 +46,7 @@ public class Compilador {
         //Clase que encapsula los cuatro enteros de un cuadruplo
 
         public static class Cuadruplo{
-            public long operando,operador2;
+            public int operando,operador2;
             public Object operador1;
 
             public void setOutput(int output) {
@@ -55,14 +55,14 @@ public class Compilador {
 
             public int output;
 
-            public Cuadruplo(long operando, long operador1, long operador2, int output) {
+            public Cuadruplo(int operando, int operador1, int operador2, int output) {
                 this.operando = operando;
                 this.operador1 = operador1;
                 this.operador2 = operador2;
                 this.output = output;
             }
 
-            public Cuadruplo(long operando, Object operador1, long operador2, int output){
+            public Cuadruplo(int operando, Object operador1, int operador2, int output){
                 this.operando = operando;
                 this.operador1 = operador1;
                 this.operador2 = operador2;
@@ -86,10 +86,10 @@ public class Compilador {
 
         //Agregar un cuadruplo a la lista de cuadruplos
 
-        public void agregarCuadruplo(long operando, long operador1, long operador2, int output){
+        public void agregarCuadruplo(int operando, int operador1, int operador2, int output){
             cuadruplos.add(new Cuadruplo(operando,operador1,operador2,output));
         }
-        public void agregarCuadruplo(long operando, Object operador1, long operador2, int output){
+        public void agregarCuadruplo(int operando, Object operador1, int operador2, int output){
             cuadruplos.add(new Cuadruplo(operando,operador1,operador2,output));
         }
         public void registrarSalto(){
@@ -236,10 +236,10 @@ public class Compilador {
             Booleanos (1000)
              */
 
-            public static final int VAR_INT = 1;
-            public static final int VAR_FLOAT = 2;
-            public static final int VAR_STRING = 3;
-            public static final int VAR_BOOL = 4;
+            public static final int VAR_INT = Cubo.ENTERO;
+            public static final int VAR_FLOAT = Cubo.REAL;
+            public static final int VAR_STRING = Cubo.CARACTER;
+            public static final int VAR_BOOL = Cubo.BOLEANO;
 
             // Indices de Memoria global 0 - 6999 (7000)
             public static final int bGlobalInt = 0;

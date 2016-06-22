@@ -28,7 +28,7 @@ public class Reglas {
         public static void R2(String nombre) {
             id = nombre;
             direccion = Compilador.varManager.declararVariable(tipo,id);
-            Compilador.cuadManager.agregarCuadruplo(Instrucciones.VARDECL,direccion,-1,-1);
+            Compilador.cuadManager.agregarCuadruplo(Instrucciones.VARDECL,-1,-1,direccion);
         }
 
         public static void R3(){
@@ -189,6 +189,25 @@ public class Reglas {
         public static void R1(int type, String variable){
             lastConstantDir = Compilador.varManager.declararConstante(type,variable);
             Compilador.cuadManager.agregarCuadruplo(Instrucciones.CONSTANT,variable,-1,lastConstantDir);
+        }
+    }
+
+    public static class Programa {
+
+        public static void R1(){
+            //Generamos un GOTO para ir a principal
+            Compilador.cuadManager.registrarSalto();
+            Compilador.cuadManager.agregarCuadruplo(Instrucciones.GOTO,-1,-1,-1);
+        }
+
+        public static void R2() {
+            // Al llegar al token principal rellenamos el GOTO inicial
+            Compilador.cuadManager.rellenarSalto();
+        }
+
+        public static void R3() {
+            // Al llegar al final de la funcion 'principal' Generamos un fin de archivo
+            Compilador.cuadManager.agregarCuadruplo(Instrucciones.EOF,-1,-1,-1);
         }
     }
 }

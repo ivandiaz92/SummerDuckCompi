@@ -2,7 +2,7 @@ public class Cubo {
     private static Cubo instancia = new Cubo();
 
     // objeto
-    private int cubito[][][]= new int [4][4][5];
+    private int cubito[][][]= new int [4][4][14];
 
     // metodos
     public static int esValido(int op1, int op2, int oper){
@@ -10,30 +10,31 @@ public class Cubo {
     }
 
     // Tipos de dato (DIMENSION 1 y 2)
-    public static int ENTERO = 10;
-    public static int REAL = 11;
-    public static int CARACTER = 12;
-    public static int BOLEANO = 13;
+    public static final int ENTERO = 0;
+    public static final int REAL = 1;
+    public static final int CARACTER = 2;
+    public static final int BOLEANO = 3;
 
     // OPERADORES (DIMENSION 3)
-    public static int SUMA = 20;  // +
-    public static int RESTA = 21; // -
-    public static int MULTI = 22; // *
-    public static int DIVI = 23;  // /
-    public static int MOD = 24;   // %
+    public static final int SUMA = 0;  // +
+    public static final int RESTA = 1; // -
+    public static final int MULTI = 2; // *
+    public static final int DIVI = 3;  // /
+    public static final int MOD = 4;   // %
+    public static final int ASIGN = 5; // =
 
-    public static int AND = 30; // &
-    public static int OR = 31;  // |
-    public static int MEN = 32; // <
-    public static int MAY = 33; // >
-    public static int MEI = 34; // <=
-    public static int MAI = 35; // >=
-    public static int EQU = 36; // ==
+    public static final int AND = 6; // &
+    public static final int OR = 7;  // |
+    public static final int MEN = 8; // <
+    public static final int MAY = 9; // >
+    public static final int MEI = 10; // <=
+    public static final int MAI = 11; // >=
+    public static final int EQU = 12; // ==
     //public static int NOT = 37; // ¡
-    public static int DIF = 38; // !=
+    public static final int DIF = 13; // !=
 
     // Error
-    public static int ERROR = 666;
+    public static final int ERROR = Errors.OPERACION_ILEGAL;
 
     // Reglas semanticas
     public Cubo(){
@@ -313,5 +314,26 @@ public class Cubo {
         cubito[BOLEANO][REAL][DIF] = ERROR;
         cubito[BOLEANO][CARACTER][DIF] = ERROR;
         cubito[BOLEANO][BOLEANO][DIF] = BOLEANO;
+
+        // ASIGN
+        cubito[ENTERO][ENTERO][ASIGN] = ENTERO;
+        cubito[ENTERO][REAL][ASIGN] = REAL;
+        cubito[ENTERO][CARACTER][ASIGN] = ERROR;
+        cubito[ENTERO][BOLEANO][ASIGN] = ERROR;
+
+        cubito[REAL][ENTERO][ASIGN] = ENTERO;
+        cubito[REAL][REAL][ASIGN] = REAL;
+        cubito[REAL][CARACTER][ASIGN] = ERROR;
+        cubito[REAL][BOLEANO][ASIGN] = ERROR;
+
+        cubito[CARACTER][ENTERO][ASIGN] = ERROR;
+        cubito[CARACTER][REAL][ASIGN] = ERROR;
+        cubito[CARACTER][CARACTER][ASIGN] = CARACTER;
+        cubito[CARACTER][BOLEANO][ASIGN] = ERROR;
+
+        cubito[BOLEANO][ENTERO][ASIGN] = ERROR;
+        cubito[BOLEANO][REAL][ASIGN] = ERROR;
+        cubito[BOLEANO][CARACTER][ASIGN] = ERROR;
+        cubito[BOLEANO][BOLEANO][ASIGN] = BOLEANO;
     }
 }

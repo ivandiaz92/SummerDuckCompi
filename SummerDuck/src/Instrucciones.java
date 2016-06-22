@@ -7,5 +7,6 @@ public class Instrucciones {
     public static final int SCAN = 1005;
     public static final int WRITE = 1006;
     public static final int CONSTANT = 1007;
+    public static final int EOF = 1008;
 }
 

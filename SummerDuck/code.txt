@@ -10,8 +10,6 @@ y = 3;
 m = true;
 m2 = false;
 
-z = "papa";
-
 principal(){
     entero: a,a2;
     real: b,b2;
