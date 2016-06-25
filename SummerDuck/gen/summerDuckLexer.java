@@ -16,7 +16,7 @@ public class summerDuckLexer extends Lexer {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		PROG=1, MAIN=2, INT=3, FLOAT=4, CHAR=5, BOOL=6, RETURN=7, FUNCTION=8, 
+		PROG=1, MAIN2=2, INT=3, FLOAT=4, CHAR=5, BOOL=6, RETURN=7, FUNCTION=8, 
 		IF=9, ELSE=10, WHILE=11, THEN=12, DO=13, UNTIL=14, SCAN=15, PRINT=16, 
 		SUMA=17, RESTA=18, MULT=19, DIV=20, LP=21, RP=22, LB=23, RB=24, LK=25, 
 		RK=26, DP=27, PC=28, COMA=29, PUNTO=30, MOD=31, IGUAL=32, MAYOR=33, MENOR=34, 
@@ -27,7 +27,7 @@ public class summerDuckLexer extends Lexer {
 	};
 
 	public static final String[] ruleNames = {
-		"PROG", "MAIN", "INT", "FLOAT", "CHAR", "BOOL", "RETURN", "FUNCTION", 
+		"PROG", "MAIN2", "INT", "FLOAT", "CHAR", "BOOL", "RETURN", "FUNCTION", 
 		"IF", "ELSE", "WHILE", "THEN", "DO", "UNTIL", "SCAN", "PRINT", "SUMA", 
 		"RESTA", "MULT", "DIV", "LP", "RP", "LB", "RB", "LK", "RK", "DP", "PC", 
 		"COMA", "PUNTO", "MOD", "IGUAL", "MAYOR", "MENOR", "MAYORI", "MENORI", 
@@ -44,7 +44,7 @@ public class summerDuckLexer extends Lexer {
 		"'falso'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, "PROG", "MAIN", "INT", "FLOAT", "CHAR", "BOOL", "RETURN", "FUNCTION", 
+		null, "PROG", "MAIN2", "INT", "FLOAT", "CHAR", "BOOL", "RETURN", "FUNCTION", 
 		"IF", "ELSE", "WHILE", "THEN", "DO", "UNTIL", "SCAN", "PRINT", "SUMA", 
 		"RESTA", "MULT", "DIV", "LP", "RP", "LB", "RB", "LK", "RK", "DP", "PC", 
 		"COMA", "PUNTO", "MOD", "IGUAL", "MAYOR", "MENOR", "MAYORI", "MENORI", 

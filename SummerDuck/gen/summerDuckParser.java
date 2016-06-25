@@ -16,7 +16,7 @@ public class summerDuckParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		PROG=1, MAIN=2, INT=3, FLOAT=4, CHAR=5, BOOL=6, RETURN=7, FUNCTION=8, 
+		PROG=1, MAIN2=2, INT=3, FLOAT=4, CHAR=5, BOOL=6, RETURN=7, FUNCTION=8, 
 		IF=9, ELSE=10, WHILE=11, THEN=12, DO=13, UNTIL=14, SCAN=15, PRINT=16, 
 		SUMA=17, RESTA=18, MULT=19, DIV=20, LP=21, RP=22, LB=23, RB=24, LK=25, 
 		RK=26, DP=27, PC=28, COMA=29, PUNTO=30, MOD=31, IGUAL=32, MAYOR=33, MENOR=34, 
@@ -52,7 +52,7 @@ public class summerDuckParser extends Parser {
 		"'falso'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, "PROG", "MAIN", "INT", "FLOAT", "CHAR", "BOOL", "RETURN", "FUNCTION", 
+		null, "PROG", "MAIN2", "INT", "FLOAT", "CHAR", "BOOL", "RETURN", "FUNCTION", 
 		"IF", "ELSE", "WHILE", "THEN", "DO", "UNTIL", "SCAN", "PRINT", "SUMA", 
 		"RESTA", "MULT", "DIV", "LP", "RP", "LB", "RB", "LK", "RK", "DP", "PC", 
 		"COMA", "PUNTO", "MOD", "IGUAL", "MAYOR", "MENOR", "MAYORI", "MENORI", 
@@ -177,7 +177,7 @@ public class summerDuckParser extends Parser {
 	}
 
 	public static class MainContext extends ParserRuleContext {
-		public TerminalNode MAIN() { return getToken(summerDuckParser.MAIN, 0); }
+		public TerminalNode MAIN2() { return getToken(summerDuckParser.MAIN2, 0); }
 		public TerminalNode LP() { return getToken(summerDuckParser.LP, 0); }
 		public TerminalNode RP() { return getToken(summerDuckParser.RP, 0); }
 		public TerminalNode LK() { return getToken(summerDuckParser.LK, 0); }
@@ -214,7 +214,7 @@ public class summerDuckParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(90);
-			match(MAIN);
+			match(MAIN2);
 			setState(91);
 			match(LP);
 			setState(92);
@@ -276,7 +276,7 @@ public class summerDuckParser extends Parser {
 		try {
 			setState(104);
 			switch (_input.LA(1)) {
-			case MAIN:
+			case MAIN2:
 			case RETURN:
 			case FUNCTION:
 			case IF:
@@ -734,7 +734,7 @@ public class summerDuckParser extends Parser {
 		try {
 			setState(155);
 			switch (_input.LA(1)) {
-			case MAIN:
+			case MAIN2:
 				enterOuterAlt(_localctx, 1);
 				{
 				}
@@ -972,6 +972,9 @@ public class summerDuckParser extends Parser {
 		public VarAsignContext varAsign() {
 			return getRuleContext(VarAsignContext.class,0);
 		}
+		public StatementsContext statements() {
+			return getRuleContext(StatementsContext.class,0);
+		}
 		public LeerContext leer() {
 			return getRuleContext(LeerContext.class,0);
 		}
@@ -1010,55 +1013,71 @@ public class summerDuckParser extends Parser {
 		StatementsContext _localctx = new StatementsContext(_ctx, getState());
 		enterRule(_localctx, 26, RULE_statements);
 		try {
-			setState(178);
-			switch ( getInterpreter().adaptivePredict(_input,7,_ctx) ) {
-			case 1:
+			setState(190);
+			switch (_input.LA(1)) {
+			case RETURN:
+			case LK:
+			case RK:
 				enterOuterAlt(_localctx, 1);
 				{
 				}
 				break;
-			case 2:
+			case ID:
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(172);
 				varAsign();
+				setState(173);
+				statements();
 				}
 				break;
-			case 3:
+			case SCAN:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(173);
+				setState(175);
 				leer();
+				setState(176);
+				statements();
 				}
 				break;
-			case 4:
+			case PRINT:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(174);
+				setState(178);
 				escribir();
+				setState(179);
+				statements();
 				}
 				break;
-			case 5:
+			case IF:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(175);
+				setState(181);
 				ifelse();
+				setState(182);
+				statements();
 				}
 				break;
-			case 6:
+			case WHILE:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(176);
+				setState(184);
 				while_statement();
+				setState(185);
+				statements();
 				}
 				break;
-			case 7:
+			case DO:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(177);
+				setState(187);
 				dowhile();
+				setState(188);
+				statements();
 				}
 				break;
+			default:
+				throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1102,9 +1121,9 @@ public class summerDuckParser extends Parser {
 		AsignationsContext _localctx = new AsignationsContext(_ctx, getState());
 		enterRule(_localctx, 28, RULE_asignations);
 		try {
-			setState(184);
+			setState(196);
 			switch (_input.LA(1)) {
-			case MAIN:
+			case MAIN2:
 			case FUNCTION:
 				enterOuterAlt(_localctx, 1);
 				{
@@ -1113,9 +1132,9 @@ public class summerDuckParser extends Parser {
 			case ID:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(181);
+				setState(193);
 				varAsign();
-				setState(182);
+				setState(194);
 				asignations();
 				}
 				break;
@@ -1143,9 +1162,6 @@ public class summerDuckParser extends Parser {
 			return getRuleContext(ExpContext.class,0);
 		}
 		public TerminalNode PC() { return getToken(summerDuckParser.PC, 0); }
-		public StatementsContext statements() {
-			return getRuleContext(StatementsContext.class,0);
-		}
 		public VarAsignContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1171,16 +1187,14 @@ public class summerDuckParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(186);
+			setState(198);
 			var();Reglas.Asignacion.R1();
-			setState(187);
+			setState(199);
 			match(IGUAL);
-			setState(188);
+			setState(200);
 			exp();
-			setState(189);
+			setState(201);
 			match(PC);Reglas.Asignacion.R2();
-			setState(190);
-			statements();
 			}
 		}
 		catch (RecognitionException re) {
@@ -1227,15 +1241,15 @@ public class summerDuckParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(192);
+			setState(203);
 			match(SCAN);
-			setState(193);
+			setState(204);
 			match(LP);
-			setState(194);
+			setState(205);
 			leeraux();
-			setState(195);
+			setState(206);
 			match(RP);
-			setState(196);
+			setState(207);
 			match(PC);
 			}
 		}
@@ -1282,9 +1296,9 @@ public class summerDuckParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(198);
+			setState(209);
 			var();Reglas.Leer.R1();
-			setState(199);
+			setState(210);
 			leeraux2();
 			}
 		}
@@ -1327,7 +1341,7 @@ public class summerDuckParser extends Parser {
 		Leeraux2Context _localctx = new Leeraux2Context(_ctx, getState());
 		enterRule(_localctx, 36, RULE_leeraux2);
 		try {
-			setState(204);
+			setState(215);
 			switch (_input.LA(1)) {
 			case RP:
 				enterOuterAlt(_localctx, 1);
@@ -1337,9 +1351,9 @@ public class summerDuckParser extends Parser {
 			case COMA:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(202);
+				setState(213);
 				match(COMA);
-				setState(203);
+				setState(214);
 				leeraux();
 				}
 				break;
@@ -1391,15 +1405,15 @@ public class summerDuckParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(206);
+			setState(217);
 			match(PRINT);
-			setState(207);
+			setState(218);
 			match(LP);
 			setState(208);
 			exp();Reglas.Escribir.R1();
-			setState(209);
+			setState(220);
 			match(RP);
-			setState(210);
+			setState(221);
 			match(PC);
 			}
 		}
@@ -1454,21 +1468,21 @@ public class summerDuckParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(212);
+			setState(223);
 			match(IF);
-			setState(213);
+			setState(224);
 			match(LP);
-			setState(214);
+			setState(225);
 			exp();
-			setState(215);
+			setState(226);
 			match(RP);
-			setState(216);
+			setState(227);
 			match(LK);Reglas.Condicional.R1();
-			setState(217);
+			setState(228);
 			statements();Reglas.Condicional.R2();
-			setState(218);
+			setState(229);
 			match(RK);
-			setState(219);
+			setState(230);
 			ifelseaux();
 			}
 		}
@@ -1513,11 +1527,14 @@ public class summerDuckParser extends Parser {
 		IfelseauxContext _localctx = new IfelseauxContext(_ctx, getState());
 		enterRule(_localctx, 42, RULE_ifelseaux);
 		try {
-			setState(227);
+			setState(238);
 			switch (_input.LA(1)) {
-			case MAIN:
 			case RETURN:
-			case FUNCTION:
+			case IF:
+			case WHILE:
+			case DO:
+			case SCAN:
+			case PRINT:
 			case LK:
 			case RK:
 			case ID:
@@ -1528,13 +1545,13 @@ public class summerDuckParser extends Parser {
 			case ELSE:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(222);
+				setState(233);
 				match(ELSE);
-				setState(223);
+				setState(234);
 				match(LK);Reglas.Condicional.R3();
-				setState(224);
+				setState(235);
 				statements();Reglas.Condicional.R2();
-				setState(225);
+				setState(236);
 				match(RK);
 				}
 				break;
@@ -1591,21 +1608,21 @@ public class summerDuckParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(229);
+			setState(240);
 			match(WHILE);
-			setState(230);
+			setState(241);
 			match(LP);Reglas.Mientras.R1();
-			setState(231);
+			setState(242);
 			exp();Reglas.Mientras.R2();
-			setState(232);
+			setState(243);
 			match(RP);
-			setState(233);
+			setState(244);
 			match(THEN);
-			setState(234);
+			setState(245);
 			match(RK);
-			setState(235);
+			setState(246);
 			statements();Reglas.Mientras.R3();
-			setState(236);
+			setState(247);
 			match(LK);
 			}
 		}
@@ -1659,23 +1676,23 @@ public class summerDuckParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(238);
+			setState(249);
 			match(DO);
-			setState(239);
+			setState(250);
 			match(LK);Reglas.HazMientras.R1();
-			setState(240);
+			setState(251);
 			statements();
-			setState(241);
+			setState(252);
 			match(RK);
-			setState(242);
+			setState(253);
 			match(UNTIL);
-			setState(243);
+			setState(254);
 			match(LP);
-			setState(244);
+			setState(255);
 			exp();Reglas.HazMientras.R2();
-			setState(245);
+			setState(256);
 			match(RP);
-			setState(246);
+			setState(257);
 			match(PC);
 			}
 		}
@@ -1722,10 +1739,10 @@ public class summerDuckParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(248);
-			Reglas.Expresion.IniciaExp();
+			setState(259);
+            Reglas.Expresion.IniciaExp();
             exor();
-			setState(249);
+			setState(260);
 			expaux();
             Reglas.Expresion.TerminaExp();
 			}
@@ -1769,7 +1786,7 @@ public class summerDuckParser extends Parser {
 		ExpauxContext _localctx = new ExpauxContext(_ctx, getState());
 		enterRule(_localctx, 50, RULE_expaux);
 		try {
-			setState(254);
+			setState(265);
 			switch (_input.LA(1)) {
 			case RP:
 			case PC:
@@ -1781,9 +1798,9 @@ public class summerDuckParser extends Parser {
 			case AND:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(252);
+				setState(263);
 				Reglas.Expresion.Operador(Prioridades.AND);match(AND);
-				setState(253);
+				setState(264);
 				exp();
 				}
 				break;
@@ -1834,9 +1851,9 @@ public class summerDuckParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(256);
+			setState(267);
 			exnot();
-			setState(257);
+			setState(268);
 			exoraux();
 			}
 		}
@@ -1879,7 +1896,7 @@ public class summerDuckParser extends Parser {
 		ExorauxContext _localctx = new ExorauxContext(_ctx, getState());
 		enterRule(_localctx, 54, RULE_exoraux);
 		try {
-			setState(262);
+			setState(273);
 			switch (_input.LA(1)) {
 			case RP:
 			case PC:
@@ -1892,9 +1909,9 @@ public class summerDuckParser extends Parser {
 			case OR:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(260);
+				setState(271);
 				Reglas.Expresion.Operador(Prioridades.OR);match(OR);
-				setState(261);
+				setState(272);
 				exor();
 				}
 				break;
@@ -1945,9 +1962,9 @@ public class summerDuckParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(264);
+			setState(275);
 			exlog();
-			setState(265);
+			setState(276);
 			exnotaux();
 			}
 		}
@@ -1990,7 +2007,7 @@ public class summerDuckParser extends Parser {
 		ExnotauxContext _localctx = new ExnotauxContext(_ctx, getState());
 		enterRule(_localctx, 58, RULE_exnotaux);
 		try {
-			setState(270);
+			setState(281);
 			switch (_input.LA(1)) {
 			case RP:
 			case PC:
@@ -2004,9 +2021,9 @@ public class summerDuckParser extends Parser {
 			case NEG:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(268);
+				setState(279);
 				Reglas.Expresion.Operador(Prioridades.NOT); match(NEG);
-				setState(269);
+				setState(280);
 				exnot();
 				}
 				break;
@@ -2057,9 +2074,9 @@ public class summerDuckParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(272);
+			setState(283);
 			exmod();
-			setState(273);
+			setState(284);
 			exlogaux();
 			}
 		}
@@ -2107,7 +2124,7 @@ public class summerDuckParser extends Parser {
 		ExlogauxContext _localctx = new ExlogauxContext(_ctx, getState());
 		enterRule(_localctx, 62, RULE_exlogaux);
 		try {
-			setState(288);
+			setState(299);
 			switch (_input.LA(1)) {
 			case RP:
 			case PC:
@@ -2122,54 +2139,54 @@ public class summerDuckParser extends Parser {
 			case MAYOR:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(276);
+				setState(287);
 				Reglas.Expresion.Operador(Prioridades.MAYOR);match(MAYOR);
-				setState(277);
+				setState(288);
 				exlog();
 				}
 				break;
 			case MENOR:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(278);
+				setState(289);
                 Reglas.Expresion.Operador(Prioridades.MENOR);match(MENOR);
-				setState(279);
+				setState(290);
 				exlog();
 				}
 				break;
 			case MAYORI:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(280);
+				setState(291);
                 Reglas.Expresion.Operador(Prioridades.MAYORIGUAL);match(MAYORI);
-				setState(281);
+				setState(292);
 				exlog();
 				}
 				break;
 			case MENORI:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(282);
+				setState(293);
                 Reglas.Expresion.Operador(Prioridades.MENORIGUAL);match(MENORI);
-				setState(283);
+				setState(294);
 				exlog();
 				}
 				break;
 			case EQUIV:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(284);
+				setState(295);
                 Reglas.Expresion.Operador(Prioridades.EQUIVALENTE);match(EQUIV);
-				setState(285);
+				setState(296);
 				exlog();
 				}
 				break;
 			case DIF:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(286);
+				setState(297);
                 Reglas.Expresion.Operador(Prioridades.DIFERENTE);match(DIF);
-				setState(287);
+				setState(298);
 				exlog();
 				}
 				break;
@@ -2220,9 +2237,9 @@ public class summerDuckParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(290);
+			setState(301);
 			ex();
-			setState(291);
+			setState(302);
 			exmodaux();
 			}
 		}
@@ -2265,7 +2282,7 @@ public class summerDuckParser extends Parser {
 		ExmodauxContext _localctx = new ExmodauxContext(_ctx, getState());
 		enterRule(_localctx, 66, RULE_exmodaux);
 		try {
-			setState(296);
+			setState(307);
 			switch (_input.LA(1)) {
 			case RP:
 			case PC:
@@ -2286,9 +2303,9 @@ public class summerDuckParser extends Parser {
 			case MOD:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(294);
-				Reglas.Expresion.Operador(Prioridades.MOD);match(MOD);
-				setState(295);
+				setState(305);
+                Reglas.Expresion.Operador(Prioridades.MOD);match(MOD);
+				setState(306);
 				exmod();
 				}
 				break;
@@ -2339,9 +2356,9 @@ public class summerDuckParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(298);
+			setState(309);
 			termino();
-			setState(299);
+			setState(310);
 			exaux();
 			}
 		}
@@ -2385,7 +2402,7 @@ public class summerDuckParser extends Parser {
 		ExauxContext _localctx = new ExauxContext(_ctx, getState());
 		enterRule(_localctx, 70, RULE_exaux);
 		try {
-			setState(306);
+			setState(317);
 			switch (_input.LA(1)) {
 			case RP:
 			case PC:
@@ -2407,18 +2424,18 @@ public class summerDuckParser extends Parser {
 			case SUMA:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(302);
-				Reglas.Expresion.Operador(Prioridades.SUMA);match(SUMA);
-				setState(303);
+				setState(313);
+                Reglas.Expresion.Operador(Prioridades.SUMA);match(SUMA);
+				setState(314);
 				ex();
 				}
 				break;
 			case RESTA:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(304);
-				Reglas.Expresion.Operador(Prioridades.RESTA);match(RESTA);
-				setState(305);
+				setState(315);
+                Reglas.Expresion.Operador(Prioridades.RESTA);match(RESTA);
+				setState(316);
 				ex();
 				}
 				break;
@@ -2469,9 +2486,9 @@ public class summerDuckParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(308);
+			setState(319);
 			factor();
-			setState(309);
+			setState(320);
 			terminoaux();
 			}
 		}
@@ -2515,7 +2532,7 @@ public class summerDuckParser extends Parser {
 		TerminoauxContext _localctx = new TerminoauxContext(_ctx, getState());
 		enterRule(_localctx, 74, RULE_terminoaux);
 		try {
-			setState(316);
+			setState(327);
 			switch (_input.LA(1)) {
 			case SUMA:
 			case RESTA:
@@ -2539,18 +2556,18 @@ public class summerDuckParser extends Parser {
 			case MULT:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(312);
+				setState(323);
 				Reglas.Expresion.Operador(Prioridades.MULTIPLICACION);match(MULT);
-				setState(313);
+				setState(324);
 				termino();
 				}
 				break;
 			case DIV:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(314);
-				Reglas.Expresion.Operador(Prioridades.DIVICION);match(DIV);
-				setState(315);
+				setState(325);
+                Reglas.Expresion.Operador(Prioridades.DIVICION);match(DIV);
+				setState(326);
 				termino();
 				}
 				break;
@@ -2607,7 +2624,7 @@ public class summerDuckParser extends Parser {
 		FactorContext _localctx = new FactorContext(_ctx, getState());
 		enterRule(_localctx, 76, RULE_factor);
 		try {
-			setState(330);
+			setState(341);
 			switch ( getInterpreter().adaptivePredict(_input,18,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -2617,32 +2634,32 @@ public class summerDuckParser extends Parser {
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(319);
+				setState(330);
 				match(LP);
-				setState(320);
+				setState(331);
 				exp();
-				setState(321);
+				setState(332);
 				match(RP);Reglas.Expresion.CierraParentesis();
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(323);
+				setState(334);
 				functioncall();
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(324);
+				setState(335);
 				Reglas.Expresion.Factor(this.getCurrentToken().getText());match(ID);
 				}
 				break;
 			case 5:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(325);
+				setState(336);
                 Reglas.Constante.R1(Compilador.ManejadorDeMemoria.Memoria.VAR_INT, this.getCurrentToken().getText());
 				Reglas.Expresion.CTE(Compilador.ManejadorDeMemoria.Memoria.VAR_INT, this.getCurrentToken().getText());
 				match(CTE_I);
@@ -2651,16 +2668,16 @@ public class summerDuckParser extends Parser {
 			case 6:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(326);
+				setState(337);
                 Reglas.Constante.R1(Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT, this.getCurrentToken().getText());
-					Reglas.Expresion.CTE(Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT, this.getCurrentToken().getText());
+                Reglas.Expresion.CTE(Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT, this.getCurrentToken().getText());
 				match(CTE_F);
 				}
 				break;
 			case 7:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(327);
+				setState(338);
                 Reglas.Constante.R1(Compilador.ManejadorDeMemoria.Memoria.VAR_STRING, this.getCurrentToken().getText());
 				Reglas.Expresion.CTE(Compilador.ManejadorDeMemoria.Memoria.VAR_STRING, this.getCurrentToken().getText());
 				match(CTE_C);
@@ -2669,7 +2686,7 @@ public class summerDuckParser extends Parser {
 			case 8:
 				enterOuterAlt(_localctx, 8);
 				{
-				setState(328);
+				setState(339);
                 Reglas.Constante.R1(Compilador.ManejadorDeMemoria.Memoria.VAR_BOOL, "false");
 				Reglas.Expresion.CTE(Compilador.ManejadorDeMemoria.Memoria.VAR_BOOL, "false");
 				match(CTE_BF);
@@ -2678,7 +2695,7 @@ public class summerDuckParser extends Parser {
 			case 9:
 				enterOuterAlt(_localctx, 9);
 				{
-				setState(329);
+				setState(340);
                 Reglas.Constante.R1(Compilador.ManejadorDeMemoria.Memoria.VAR_BOOL, "true");
 				Reglas.Expresion.CTE(Compilador.ManejadorDeMemoria.Memoria.VAR_BOOL, "true");
 				match(CTE_BT);
@@ -2732,15 +2749,15 @@ public class summerDuckParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(332);
+			setState(343);
 			match(ID);
-			setState(333);
+			setState(344);
 			match(LP);
-			setState(334);
+			setState(345);
 			exp();
-			setState(335);
+			setState(346);
 			functioncallaux();
-			setState(336);
+			setState(347);
 			match(RP);
 			}
 		}
@@ -2786,7 +2803,7 @@ public class summerDuckParser extends Parser {
 		FunctioncallauxContext _localctx = new FunctioncallauxContext(_ctx, getState());
 		enterRule(_localctx, 80, RULE_functioncallaux);
 		try {
-			setState(343);
+			setState(354);
 			switch (_input.LA(1)) {
 			case RP:
 				enterOuterAlt(_localctx, 1);
@@ -2796,11 +2813,11 @@ public class summerDuckParser extends Parser {
 			case COMA:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(339);
+				setState(350);
 				match(COMA);
-				setState(340);
+				setState(351);
 				exp();
-				setState(341);
+				setState(352);
 				functioncallaux();
 				}
 				break;
@@ -2820,7 +2837,7 @@ public class summerDuckParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\62\u015c\4\2\t\2"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\62\u0167\4\2\t\2"+
 		"\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13"+
 		"\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
@@ -2832,108 +2849,112 @@ public class summerDuckParser extends Parser {
 		"\u0089\n\n\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13"+
 		"\3\13\3\13\3\13\3\13\3\13\3\13\3\13\5\13\u009e\n\13\3\f\3\f\5\f\u00a2"+
 		"\n\f\3\r\3\r\3\r\3\r\3\r\3\16\3\16\3\16\5\16\u00ac\n\16\3\17\3\17\3\17"+
-		"\3\17\3\17\3\17\3\17\5\17\u00b5\n\17\3\20\3\20\3\20\3\20\5\20\u00bb\n"+
-		"\20\3\21\3\21\3\21\3\21\3\21\3\21\3\22\3\22\3\22\3\22\3\22\3\22\3\23\3"+
-		"\23\3\23\3\24\3\24\3\24\5\24\u00cf\n\24\3\25\3\25\3\25\3\25\3\25\3\25"+
-		"\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\27\3\27\3\27\3\27\3\27"+
-		"\3\27\5\27\u00e6\n\27\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\31"+
-		"\3\31\3\31\3\31\3\31\3\31\3\31\3\31\3\31\3\31\3\32\3\32\3\32\3\33\3\33"+
-		"\3\33\5\33\u0101\n\33\3\34\3\34\3\34\3\35\3\35\3\35\5\35\u0109\n\35\3"+
-		"\36\3\36\3\36\3\37\3\37\3\37\5\37\u0111\n\37\3 \3 \3 \3!\3!\3!\3!\3!\3"+
-		"!\3!\3!\3!\3!\3!\3!\3!\5!\u0123\n!\3\"\3\"\3\"\3#\3#\3#\5#\u012b\n#\3"+
-		"$\3$\3$\3%\3%\3%\3%\3%\5%\u0135\n%\3&\3&\3&\3\'\3\'\3\'\3\'\3\'\5\'\u013f"+
-		"\n\'\3(\3(\3(\3(\3(\3(\3(\3(\3(\3(\3(\3(\5(\u014d\n(\3)\3)\3)\3)\3)\3"+
-		")\3*\3*\3*\3*\3*\5*\u015a\n*\3*\2\2+\2\4\6\b\n\f\16\20\22\24\26\30\32"+
-		"\34\36 \"$&(*,.\60\62\64\668:<>@BDFHJLNPR\2\3\3\2\5\b\u0159\2T\3\2\2\2"+
-		"\4\\\3\2\2\2\6j\3\2\2\2\br\3\2\2\2\nt\3\2\2\2\fv\3\2\2\2\16~\3\2\2\2\20"+
-		"\u0080\3\2\2\2\22\u0088\3\2\2\2\24\u009d\3\2\2\2\26\u00a1\3\2\2\2\30\u00a3"+
-		"\3\2\2\2\32\u00ab\3\2\2\2\34\u00b4\3\2\2\2\36\u00ba\3\2\2\2 \u00bc\3\2"+
-		"\2\2\"\u00c2\3\2\2\2$\u00c8\3\2\2\2&\u00ce\3\2\2\2(\u00d0\3\2\2\2*\u00d6"+
-		"\3\2\2\2,\u00e5\3\2\2\2.\u00e7\3\2\2\2\60\u00f0\3\2\2\2\62\u00fa\3\2\2"+
-		"\2\64\u0100\3\2\2\2\66\u0102\3\2\2\28\u0108\3\2\2\2:\u010a\3\2\2\2<\u0110"+
-		"\3\2\2\2>\u0112\3\2\2\2@\u0122\3\2\2\2B\u0124\3\2\2\2D\u012a\3\2\2\2F"+
-		"\u012c\3\2\2\2H\u0134\3\2\2\2J\u0136\3\2\2\2L\u013e\3\2\2\2N\u014c\3\2"+
-		"\2\2P\u014e\3\2\2\2R\u0159\3\2\2\2TU\7\3\2\2UV\7\61\2\2VW\7\36\2\2WX\5"+
-		"\6\4\2XY\5\36\20\2YZ\5\24\13\2Z[\5\4\3\2[\3\3\2\2\2\\]\7\4\2\2]^\7\27"+
-		"\2\2^_\7\30\2\2_`\7\33\2\2`a\5\6\4\2ab\5\34\17\2bc\7\34\2\2c\5\3\2\2\2"+
-		"dk\3\2\2\2ef\5\n\6\2fg\7\35\2\2gh\5\20\t\2hi\5\b\5\2ik\3\2\2\2jd\3\2\2"+
-		"\2je\3\2\2\2k\7\3\2\2\2lm\7\36\2\2ms\5\6\4\2no\7\37\2\2op\5\20\t\2pq\5"+
-		"\b\5\2qs\3\2\2\2rl\3\2\2\2rn\3\2\2\2s\t\3\2\2\2tu\t\2\2\2u\13\3\2\2\2"+
-		"vw\7\61\2\2wx\5\16\b\2x\r\3\2\2\2y\177\3\2\2\2z{\7\31\2\2{|\7.\2\2|}\7"+
-		"\32\2\2}\177\5\16\b\2~y\3\2\2\2~z\3\2\2\2\177\17\3\2\2\2\u0080\u0081\7"+
-		"\61\2\2\u0081\u0082\5\22\n\2\u0082\21\3\2\2\2\u0083\u0089\3\2\2\2\u0084"+
-		"\u0085\7\31\2\2\u0085\u0086\7.\2\2\u0086\u0087\7\32\2\2\u0087\u0089\5"+
-		"\22\n\2\u0088\u0083\3\2\2\2\u0088\u0084\3\2\2\2\u0089\23\3\2\2\2\u008a"+
-		"\u009e\3\2\2\2\u008b\u008c\7\n\2\2\u008c\u008d\5\n\6\2\u008d\u008e\7\61"+
-		"\2\2\u008e\u008f\7\27\2\2\u008f\u0090\5\26\f\2\u0090\u0091\7\30\2\2\u0091"+
-		"\u0092\7\36\2\2\u0092\u0093\7\33\2\2\u0093\u0094\5\6\4\2\u0094\u0095\5"+
-		"\34\17\2\u0095\u0096\7\t\2\2\u0096\u0097\7\27\2\2\u0097\u0098\5\62\32"+
-		"\2\u0098\u0099\7\30\2\2\u0099\u009a\7\36\2\2\u009a\u009b\7\34\2\2\u009b"+
-		"\u009c\5\24\13\2\u009c\u009e\3\2\2\2\u009d\u008a\3\2\2\2\u009d\u008b\3"+
-		"\2\2\2\u009e\25\3\2\2\2\u009f\u00a2\3\2\2\2\u00a0\u00a2\5\30\r\2\u00a1"+
-		"\u009f\3\2\2\2\u00a1\u00a0\3\2\2\2\u00a2\27\3\2\2\2\u00a3\u00a4\5\n\6"+
-		"\2\u00a4\u00a5\7\35\2\2\u00a5\u00a6\5\f\7\2\u00a6\u00a7\5\32\16\2\u00a7"+
-		"\31\3\2\2\2\u00a8\u00ac\3\2\2\2\u00a9\u00aa\7\37\2\2\u00aa\u00ac\5\30"+
-		"\r\2\u00ab\u00a8\3\2\2\2\u00ab\u00a9\3\2\2\2\u00ac\33\3\2\2\2\u00ad\u00b5"+
-		"\3\2\2\2\u00ae\u00b5\5 \21\2\u00af\u00b5\5\"\22\2\u00b0\u00b5\5(\25\2"+
-		"\u00b1\u00b5\5*\26\2\u00b2\u00b5\5.\30\2\u00b3\u00b5\5\60\31\2\u00b4\u00ad"+
-		"\3\2\2\2\u00b4\u00ae\3\2\2\2\u00b4\u00af\3\2\2\2\u00b4\u00b0\3\2\2\2\u00b4"+
-		"\u00b1\3\2\2\2\u00b4\u00b2\3\2\2\2\u00b4\u00b3\3\2\2\2\u00b5\35\3\2\2"+
-		"\2\u00b6\u00bb\3\2\2\2\u00b7\u00b8\5 \21\2\u00b8\u00b9\5\36\20\2\u00b9"+
-		"\u00bb\3\2\2\2\u00ba\u00b6\3\2\2\2\u00ba\u00b7\3\2\2\2\u00bb\37\3\2\2"+
-		"\2\u00bc\u00bd\5\f\7\2\u00bd\u00be\7\"\2\2\u00be\u00bf\5\62\32\2\u00bf"+
-		"\u00c0\7\36\2\2\u00c0\u00c1\5\34\17\2\u00c1!\3\2\2\2\u00c2\u00c3\7\21"+
-		"\2\2\u00c3\u00c4\7\27\2\2\u00c4\u00c5\5$\23\2\u00c5\u00c6\7\30\2\2\u00c6"+
-		"\u00c7\7\36\2\2\u00c7#\3\2\2\2\u00c8\u00c9\5\f\7\2\u00c9\u00ca\5&\24\2"+
-		"\u00ca%\3\2\2\2\u00cb\u00cf\3\2\2\2\u00cc\u00cd\7\37\2\2\u00cd\u00cf\5"+
-		"$\23\2\u00ce\u00cb\3\2\2\2\u00ce\u00cc\3\2\2\2\u00cf\'\3\2\2\2\u00d0\u00d1"+
-		"\7\22\2\2\u00d1\u00d2\7\27\2\2\u00d2\u00d3\5\62\32\2\u00d3\u00d4\7\30"+
-		"\2\2\u00d4\u00d5\7\36\2\2\u00d5)\3\2\2\2\u00d6\u00d7\7\13\2\2\u00d7\u00d8"+
-		"\7\27\2\2\u00d8\u00d9\5\62\32\2\u00d9\u00da\7\30\2\2\u00da\u00db\7\33"+
-		"\2\2\u00db\u00dc\5\34\17\2\u00dc\u00dd\7\34\2\2\u00dd\u00de\5,\27\2\u00de"+
-		"+\3\2\2\2\u00df\u00e6\3\2\2\2\u00e0\u00e1\7\f\2\2\u00e1\u00e2\7\33\2\2"+
-		"\u00e2\u00e3\5\34\17\2\u00e3\u00e4\7\34\2\2\u00e4\u00e6\3\2\2\2\u00e5"+
-		"\u00df\3\2\2\2\u00e5\u00e0\3\2\2\2\u00e6-\3\2\2\2\u00e7\u00e8\7\r\2\2"+
-		"\u00e8\u00e9\7\27\2\2\u00e9\u00ea\5\62\32\2\u00ea\u00eb\7\30\2\2\u00eb"+
-		"\u00ec\7\16\2\2\u00ec\u00ed\7\34\2\2\u00ed\u00ee\5\34\17\2\u00ee\u00ef"+
-		"\7\33\2\2\u00ef/\3\2\2\2\u00f0\u00f1\7\17\2\2\u00f1\u00f2\7\33\2\2\u00f2"+
-		"\u00f3\5\34\17\2\u00f3\u00f4\7\34\2\2\u00f4\u00f5\7\20\2\2\u00f5\u00f6"+
-		"\7\27\2\2\u00f6\u00f7\5\62\32\2\u00f7\u00f8\7\30\2\2\u00f8\u00f9\7\36"+
-		"\2\2\u00f9\61\3\2\2\2\u00fa\u00fb\5\66\34\2\u00fb\u00fc\5\64\33\2\u00fc"+
-		"\63\3\2\2\2\u00fd\u0101\3\2\2\2\u00fe\u00ff\7*\2\2\u00ff\u0101\5\62\32"+
-		"\2\u0100\u00fd\3\2\2\2\u0100\u00fe\3\2\2\2\u0101\65\3\2\2\2\u0102\u0103"+
-		"\5:\36\2\u0103\u0104\58\35\2\u0104\67\3\2\2\2\u0105\u0109\3\2\2\2\u0106"+
-		"\u0107\7+\2\2\u0107\u0109\5\66\34\2\u0108\u0105\3\2\2\2\u0108\u0106\3"+
-		"\2\2\2\u01099\3\2\2\2\u010a\u010b\5> \2\u010b\u010c\5<\37\2\u010c;\3\2"+
-		"\2\2\u010d\u0111\3\2\2\2\u010e\u010f\7(\2\2\u010f\u0111\5:\36\2\u0110"+
-		"\u010d\3\2\2\2\u0110\u010e\3\2\2\2\u0111=\3\2\2\2\u0112\u0113\5B\"\2\u0113"+
-		"\u0114\5@!\2\u0114?\3\2\2\2\u0115\u0123\3\2\2\2\u0116\u0117\7#\2\2\u0117"+
-		"\u0123\5> \2\u0118\u0119\7$\2\2\u0119\u0123\5> \2\u011a\u011b\7%\2\2\u011b"+
-		"\u0123\5> \2\u011c\u011d\7&\2\2\u011d\u0123\5> \2\u011e\u011f\7\'\2\2"+
-		"\u011f\u0123\5> \2\u0120\u0121\7)\2\2\u0121\u0123\5> \2\u0122\u0115\3"+
-		"\2\2\2\u0122\u0116\3\2\2\2\u0122\u0118\3\2\2\2\u0122\u011a\3\2\2\2\u0122"+
-		"\u011c\3\2\2\2\u0122\u011e\3\2\2\2\u0122\u0120\3\2\2\2\u0123A\3\2\2\2"+
-		"\u0124\u0125\5F$\2\u0125\u0126\5D#\2\u0126C\3\2\2\2\u0127\u012b\3\2\2"+
-		"\2\u0128\u0129\7!\2\2\u0129\u012b\5B\"\2\u012a\u0127\3\2\2\2\u012a\u0128"+
-		"\3\2\2\2\u012bE\3\2\2\2\u012c\u012d\5J&\2\u012d\u012e\5H%\2\u012eG\3\2"+
-		"\2\2\u012f\u0135\3\2\2\2\u0130\u0131\7\23\2\2\u0131\u0135\5F$\2\u0132"+
-		"\u0133\7\24\2\2\u0133\u0135\5F$\2\u0134\u012f\3\2\2\2\u0134\u0130\3\2"+
-		"\2\2\u0134\u0132\3\2\2\2\u0135I\3\2\2\2\u0136\u0137\5N(\2\u0137\u0138"+
-		"\5L\'\2\u0138K\3\2\2\2\u0139\u013f\3\2\2\2\u013a\u013b\7\25\2\2\u013b"+
-		"\u013f\5J&\2\u013c\u013d\7\26\2\2\u013d\u013f\5J&\2\u013e\u0139\3\2\2"+
-		"\2\u013e\u013a\3\2\2\2\u013e\u013c\3\2\2\2\u013fM\3\2\2\2\u0140\u014d"+
-		"\3\2\2\2\u0141\u0142\7\27\2\2\u0142\u0143\5\62\32\2\u0143\u0144\7\30\2"+
-		"\2\u0144\u014d\3\2\2\2\u0145\u014d\5P)\2\u0146\u014d\7\61\2\2\u0147\u014d"+
-		"\7.\2\2\u0148\u014d\7/\2\2\u0149\u014d\7\60\2\2\u014a\u014d\7-\2\2\u014b"+
-		"\u014d\7,\2\2\u014c\u0140\3\2\2\2\u014c\u0141\3\2\2\2\u014c\u0145\3\2"+
-		"\2\2\u014c\u0146\3\2\2\2\u014c\u0147\3\2\2\2\u014c\u0148\3\2\2\2\u014c"+
-		"\u0149\3\2\2\2\u014c\u014a\3\2\2\2\u014c\u014b\3\2\2\2\u014dO\3\2\2\2"+
-		"\u014e\u014f\7\61\2\2\u014f\u0150\7\27\2\2\u0150\u0151\5\62\32\2\u0151"+
-		"\u0152\5R*\2\u0152\u0153\7\30\2\2\u0153Q\3\2\2\2\u0154\u015a\3\2\2\2\u0155"+
-		"\u0156\7\37\2\2\u0156\u0157\5\62\32\2\u0157\u0158\5R*\2\u0158\u015a\3"+
-		"\2\2\2\u0159\u0154\3\2\2\2\u0159\u0155\3\2\2\2\u015aS\3\2\2\2\26jr~\u0088"+
-		"\u009d\u00a1\u00ab\u00b4\u00ba\u00ce\u00e5\u0100\u0108\u0110\u0122\u012a"+
-		"\u0134\u013e\u014c\u0159";
+		"\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17"+
+		"\3\17\3\17\5\17\u00c1\n\17\3\20\3\20\3\20\3\20\5\20\u00c7\n\20\3\21\3"+
+		"\21\3\21\3\21\3\21\3\22\3\22\3\22\3\22\3\22\3\22\3\23\3\23\3\23\3\24\3"+
+		"\24\3\24\5\24\u00da\n\24\3\25\3\25\3\25\3\25\3\25\3\25\3\26\3\26\3\26"+
+		"\3\26\3\26\3\26\3\26\3\26\3\26\3\27\3\27\3\27\3\27\3\27\3\27\5\27\u00f1"+
+		"\n\27\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\31\3\31\3\31\3\31"+
+		"\3\31\3\31\3\31\3\31\3\31\3\31\3\32\3\32\3\32\3\33\3\33\3\33\5\33\u010c"+
+		"\n\33\3\34\3\34\3\34\3\35\3\35\3\35\5\35\u0114\n\35\3\36\3\36\3\36\3\37"+
+		"\3\37\3\37\5\37\u011c\n\37\3 \3 \3 \3!\3!\3!\3!\3!\3!\3!\3!\3!\3!\3!\3"+
+		"!\3!\5!\u012e\n!\3\"\3\"\3\"\3#\3#\3#\5#\u0136\n#\3$\3$\3$\3%\3%\3%\3"+
+		"%\3%\5%\u0140\n%\3&\3&\3&\3\'\3\'\3\'\3\'\3\'\5\'\u014a\n\'\3(\3(\3(\3"+
+		"(\3(\3(\3(\3(\3(\3(\3(\3(\5(\u0158\n(\3)\3)\3)\3)\3)\3)\3*\3*\3*\3*\3"+
+		"*\5*\u0165\n*\3*\2\2+\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,."+
+		"\60\62\64\668:<>@BDFHJLNPR\2\3\3\2\5\b\u0164\2T\3\2\2\2\4\\\3\2\2\2\6"+
+		"j\3\2\2\2\br\3\2\2\2\nt\3\2\2\2\fv\3\2\2\2\16~\3\2\2\2\20\u0080\3\2\2"+
+		"\2\22\u0088\3\2\2\2\24\u009d\3\2\2\2\26\u00a1\3\2\2\2\30\u00a3\3\2\2\2"+
+		"\32\u00ab\3\2\2\2\34\u00c0\3\2\2\2\36\u00c6\3\2\2\2 \u00c8\3\2\2\2\"\u00cd"+
+		"\3\2\2\2$\u00d3\3\2\2\2&\u00d9\3\2\2\2(\u00db\3\2\2\2*\u00e1\3\2\2\2,"+
+		"\u00f0\3\2\2\2.\u00f2\3\2\2\2\60\u00fb\3\2\2\2\62\u0105\3\2\2\2\64\u010b"+
+		"\3\2\2\2\66\u010d\3\2\2\28\u0113\3\2\2\2:\u0115\3\2\2\2<\u011b\3\2\2\2"+
+		">\u011d\3\2\2\2@\u012d\3\2\2\2B\u012f\3\2\2\2D\u0135\3\2\2\2F\u0137\3"+
+		"\2\2\2H\u013f\3\2\2\2J\u0141\3\2\2\2L\u0149\3\2\2\2N\u0157\3\2\2\2P\u0159"+
+		"\3\2\2\2R\u0164\3\2\2\2TU\7\3\2\2UV\7\61\2\2VW\7\36\2\2WX\5\6\4\2XY\5"+
+		"\36\20\2YZ\5\24\13\2Z[\5\4\3\2[\3\3\2\2\2\\]\7\4\2\2]^\7\27\2\2^_\7\30"+
+		"\2\2_`\7\33\2\2`a\5\6\4\2ab\5\34\17\2bc\7\34\2\2c\5\3\2\2\2dk\3\2\2\2"+
+		"ef\5\n\6\2fg\7\35\2\2gh\5\20\t\2hi\5\b\5\2ik\3\2\2\2jd\3\2\2\2je\3\2\2"+
+		"\2k\7\3\2\2\2lm\7\36\2\2ms\5\6\4\2no\7\37\2\2op\5\20\t\2pq\5\b\5\2qs\3"+
+		"\2\2\2rl\3\2\2\2rn\3\2\2\2s\t\3\2\2\2tu\t\2\2\2u\13\3\2\2\2vw\7\61\2\2"+
+		"wx\5\16\b\2x\r\3\2\2\2y\177\3\2\2\2z{\7\31\2\2{|\7.\2\2|}\7\32\2\2}\177"+
+		"\5\16\b\2~y\3\2\2\2~z\3\2\2\2\177\17\3\2\2\2\u0080\u0081\7\61\2\2\u0081"+
+		"\u0082\5\22\n\2\u0082\21\3\2\2\2\u0083\u0089\3\2\2\2\u0084\u0085\7\31"+
+		"\2\2\u0085\u0086\7.\2\2\u0086\u0087\7\32\2\2\u0087\u0089\5\22\n\2\u0088"+
+		"\u0083\3\2\2\2\u0088\u0084\3\2\2\2\u0089\23\3\2\2\2\u008a\u009e\3\2\2"+
+		"\2\u008b\u008c\7\n\2\2\u008c\u008d\5\n\6\2\u008d\u008e\7\61\2\2\u008e"+
+		"\u008f\7\27\2\2\u008f\u0090\5\26\f\2\u0090\u0091\7\30\2\2\u0091\u0092"+
+		"\7\36\2\2\u0092\u0093\7\33\2\2\u0093\u0094\5\6\4\2\u0094\u0095\5\34\17"+
+		"\2\u0095\u0096\7\t\2\2\u0096\u0097\7\27\2\2\u0097\u0098\5\62\32\2\u0098"+
+		"\u0099\7\30\2\2\u0099\u009a\7\36\2\2\u009a\u009b\7\34\2\2\u009b\u009c"+
+		"\5\24\13\2\u009c\u009e\3\2\2\2\u009d\u008a\3\2\2\2\u009d\u008b\3\2\2\2"+
+		"\u009e\25\3\2\2\2\u009f\u00a2\3\2\2\2\u00a0\u00a2\5\30\r\2\u00a1\u009f"+
+		"\3\2\2\2\u00a1\u00a0\3\2\2\2\u00a2\27\3\2\2\2\u00a3\u00a4\5\n\6\2\u00a4"+
+		"\u00a5\7\35\2\2\u00a5\u00a6\5\f\7\2\u00a6\u00a7\5\32\16\2\u00a7\31\3\2"+
+		"\2\2\u00a8\u00ac\3\2\2\2\u00a9\u00aa\7\37\2\2\u00aa\u00ac\5\30\r\2\u00ab"+
+		"\u00a8\3\2\2\2\u00ab\u00a9\3\2\2\2\u00ac\33\3\2\2\2\u00ad\u00c1\3\2\2"+
+		"\2\u00ae\u00af\5 \21\2\u00af\u00b0\5\34\17\2\u00b0\u00c1\3\2\2\2\u00b1"+
+		"\u00b2\5\"\22\2\u00b2\u00b3\5\34\17\2\u00b3\u00c1\3\2\2\2\u00b4\u00b5"+
+		"\5(\25\2\u00b5\u00b6\5\34\17\2\u00b6\u00c1\3\2\2\2\u00b7\u00b8\5*\26\2"+
+		"\u00b8\u00b9\5\34\17\2\u00b9\u00c1\3\2\2\2\u00ba\u00bb\5.\30\2\u00bb\u00bc"+
+		"\5\34\17\2\u00bc\u00c1\3\2\2\2\u00bd\u00be\5\60\31\2\u00be\u00bf\5\34"+
+		"\17\2\u00bf\u00c1\3\2\2\2\u00c0\u00ad\3\2\2\2\u00c0\u00ae\3\2\2\2\u00c0"+
+		"\u00b1\3\2\2\2\u00c0\u00b4\3\2\2\2\u00c0\u00b7\3\2\2\2\u00c0\u00ba\3\2"+
+		"\2\2\u00c0\u00bd\3\2\2\2\u00c1\35\3\2\2\2\u00c2\u00c7\3\2\2\2\u00c3\u00c4"+
+		"\5 \21\2\u00c4\u00c5\5\36\20\2\u00c5\u00c7\3\2\2\2\u00c6\u00c2\3\2\2\2"+
+		"\u00c6\u00c3\3\2\2\2\u00c7\37\3\2\2\2\u00c8\u00c9\5\f\7\2\u00c9\u00ca"+
+		"\7\"\2\2\u00ca\u00cb\5\62\32\2\u00cb\u00cc\7\36\2\2\u00cc!\3\2\2\2\u00cd"+
+		"\u00ce\7\21\2\2\u00ce\u00cf\7\27\2\2\u00cf\u00d0\5$\23\2\u00d0\u00d1\7"+
+		"\30\2\2\u00d1\u00d2\7\36\2\2\u00d2#\3\2\2\2\u00d3\u00d4\5\f\7\2\u00d4"+
+		"\u00d5\5&\24\2\u00d5%\3\2\2\2\u00d6\u00da\3\2\2\2\u00d7\u00d8\7\37\2\2"+
+		"\u00d8\u00da\5$\23\2\u00d9\u00d6\3\2\2\2\u00d9\u00d7\3\2\2\2\u00da\'\3"+
+		"\2\2\2\u00db\u00dc\7\22\2\2\u00dc\u00dd\7\27\2\2\u00dd\u00de\5\62\32\2"+
+		"\u00de\u00df\7\30\2\2\u00df\u00e0\7\36\2\2\u00e0)\3\2\2\2\u00e1\u00e2"+
+		"\7\13\2\2\u00e2\u00e3\7\27\2\2\u00e3\u00e4\5\62\32\2\u00e4\u00e5\7\30"+
+		"\2\2\u00e5\u00e6\7\33\2\2\u00e6\u00e7\5\34\17\2\u00e7\u00e8\7\34\2\2\u00e8"+
+		"\u00e9\5,\27\2\u00e9+\3\2\2\2\u00ea\u00f1\3\2\2\2\u00eb\u00ec\7\f\2\2"+
+		"\u00ec\u00ed\7\33\2\2\u00ed\u00ee\5\34\17\2\u00ee\u00ef\7\34\2\2\u00ef"+
+		"\u00f1\3\2\2\2\u00f0\u00ea\3\2\2\2\u00f0\u00eb\3\2\2\2\u00f1-\3\2\2\2"+
+		"\u00f2\u00f3\7\r\2\2\u00f3\u00f4\7\27\2\2\u00f4\u00f5\5\62\32\2\u00f5"+
+		"\u00f6\7\30\2\2\u00f6\u00f7\7\16\2\2\u00f7\u00f8\7\34\2\2\u00f8\u00f9"+
+		"\5\34\17\2\u00f9\u00fa\7\33\2\2\u00fa/\3\2\2\2\u00fb\u00fc\7\17\2\2\u00fc"+
+		"\u00fd\7\33\2\2\u00fd\u00fe\5\34\17\2\u00fe\u00ff\7\34\2\2\u00ff\u0100"+
+		"\7\20\2\2\u0100\u0101\7\27\2\2\u0101\u0102\5\62\32\2\u0102\u0103\7\30"+
+		"\2\2\u0103\u0104\7\36\2\2\u0104\61\3\2\2\2\u0105\u0106\5\66\34\2\u0106"+
+		"\u0107\5\64\33\2\u0107\63\3\2\2\2\u0108\u010c\3\2\2\2\u0109\u010a\7*\2"+
+		"\2\u010a\u010c\5\62\32\2\u010b\u0108\3\2\2\2\u010b\u0109\3\2\2\2\u010c"+
+		"\65\3\2\2\2\u010d\u010e\5:\36\2\u010e\u010f\58\35\2\u010f\67\3\2\2\2\u0110"+
+		"\u0114\3\2\2\2\u0111\u0112\7+\2\2\u0112\u0114\5\66\34\2\u0113\u0110\3"+
+		"\2\2\2\u0113\u0111\3\2\2\2\u01149\3\2\2\2\u0115\u0116\5> \2\u0116\u0117"+
+		"\5<\37\2\u0117;\3\2\2\2\u0118\u011c\3\2\2\2\u0119\u011a\7(\2\2\u011a\u011c"+
+		"\5:\36\2\u011b\u0118\3\2\2\2\u011b\u0119\3\2\2\2\u011c=\3\2\2\2\u011d"+
+		"\u011e\5B\"\2\u011e\u011f\5@!\2\u011f?\3\2\2\2\u0120\u012e\3\2\2\2\u0121"+
+		"\u0122\7#\2\2\u0122\u012e\5> \2\u0123\u0124\7$\2\2\u0124\u012e\5> \2\u0125"+
+		"\u0126\7%\2\2\u0126\u012e\5> \2\u0127\u0128\7&\2\2\u0128\u012e\5> \2\u0129"+
+		"\u012a\7\'\2\2\u012a\u012e\5> \2\u012b\u012c\7)\2\2\u012c\u012e\5> \2"+
+		"\u012d\u0120\3\2\2\2\u012d\u0121\3\2\2\2\u012d\u0123\3\2\2\2\u012d\u0125"+
+		"\3\2\2\2\u012d\u0127\3\2\2\2\u012d\u0129\3\2\2\2\u012d\u012b\3\2\2\2\u012e"+
+		"A\3\2\2\2\u012f\u0130\5F$\2\u0130\u0131\5D#\2\u0131C\3\2\2\2\u0132\u0136"+
+		"\3\2\2\2\u0133\u0134\7!\2\2\u0134\u0136\5B\"\2\u0135\u0132\3\2\2\2\u0135"+
+		"\u0133\3\2\2\2\u0136E\3\2\2\2\u0137\u0138\5J&\2\u0138\u0139\5H%\2\u0139"+
+		"G\3\2\2\2\u013a\u0140\3\2\2\2\u013b\u013c\7\23\2\2\u013c\u0140\5F$\2\u013d"+
+		"\u013e\7\24\2\2\u013e\u0140\5F$\2\u013f\u013a\3\2\2\2\u013f\u013b\3\2"+
+		"\2\2\u013f\u013d\3\2\2\2\u0140I\3\2\2\2\u0141\u0142\5N(\2\u0142\u0143"+
+		"\5L\'\2\u0143K\3\2\2\2\u0144\u014a\3\2\2\2\u0145\u0146\7\25\2\2\u0146"+
+		"\u014a\5J&\2\u0147\u0148\7\26\2\2\u0148\u014a\5J&\2\u0149\u0144\3\2\2"+
+		"\2\u0149\u0145\3\2\2\2\u0149\u0147\3\2\2\2\u014aM\3\2\2\2\u014b\u0158"+
+		"\3\2\2\2\u014c\u014d\7\27\2\2\u014d\u014e\5\62\32\2\u014e\u014f\7\30\2"+
+		"\2\u014f\u0158\3\2\2\2\u0150\u0158\5P)\2\u0151\u0158\7\61\2\2\u0152\u0158"+
+		"\7.\2\2\u0153\u0158\7/\2\2\u0154\u0158\7\60\2\2\u0155\u0158\7-\2\2\u0156"+
+		"\u0158\7,\2\2\u0157\u014b\3\2\2\2\u0157\u014c\3\2\2\2\u0157\u0150\3\2"+
+		"\2\2\u0157\u0151\3\2\2\2\u0157\u0152\3\2\2\2\u0157\u0153\3\2\2\2\u0157"+
+		"\u0154\3\2\2\2\u0157\u0155\3\2\2\2\u0157\u0156\3\2\2\2\u0158O\3\2\2\2"+
+		"\u0159\u015a\7\61\2\2\u015a\u015b\7\27\2\2\u015b\u015c\5\62\32\2\u015c"+
+		"\u015d\5R*\2\u015d\u015e\7\30\2\2\u015eQ\3\2\2\2\u015f\u0165\3\2\2\2\u0160"+
+		"\u0161\7\37\2\2\u0161\u0162\5\62\32\2\u0162\u0163\5R*\2\u0163\u0165\3"+
+		"\2\2\2\u0164\u015f\3\2\2\2\u0164\u0160\3\2\2\2\u0165S\3\2\2\2\26jr~\u0088"+
+		"\u009d\u00a1\u00ab\u00c0\u00c6\u00d9\u00f0\u010b\u0113\u011b\u012d\u0135"+
+		"\u013f\u0149\u0157\u0164";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
