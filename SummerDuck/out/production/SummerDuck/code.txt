@@ -5,10 +5,12 @@ real: y,y2;
 char: z,z2;
 boleano: m,m2;
 
-y = 3;
+y = 3 / 4 * ( 1 + (2 * 3 - 2 - 3 / ( 4 * 2) ) - 5 )* 2;
 
-m = true;
-m2 = false;
+m = verdadero;
+m2 = falso;
+m2 = verdadero;
+
 
 principal(){
     entero: a,a2;

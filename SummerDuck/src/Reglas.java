@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Stack;
 
 public class Reglas {
@@ -10,11 +7,11 @@ public class Reglas {
         private static int dirExp;
 
         public static void R1(){
-            dirVar = Variable.getDireccion();
+            dirVar = Var1.getUltimaDireccion();
         }
 
         public static void R2(){
-            // TODO obtener la direccion de EXP
+            dirExp = Expresion.dirResult;
             Compilador.cuadManager.agregarCuadruplo(Instrucciones.ASIGNATION,dirExp,-1,dirVar);
         }
     }
@@ -87,8 +84,22 @@ public class Reglas {
 
     }
 
-    public static class Variable {
-        private static Stack<String> pilaO = new Stack<>();
+    public static class Var1 {
+
+        private static int ultimaDireccion;
+
+
+        public static int getUltimaDireccion() {
+            return ultimaDireccion;
+        }
+
+
+        public static void EntrandoAID(String ID){
+            ultimaDireccion = Compilador.varManager.obtenDireccion(ID);
+        }
+
+
+        /*private static Stack<String> pilaO = new Stack<>();
 
         public static String getId() {
             return id;
@@ -120,11 +131,11 @@ public class Reglas {
         }
 
         public static String obtenerUltimoId(){
-            return Variable.id;
+            return Var1.id;
         }
         public static int obtenerUltimaDireccion(){
-            return Variable.direccion;
-        }
+            return Var1.direccion;
+        }*/
     }
 
     public static class Mientras{
@@ -162,13 +173,13 @@ public class Reglas {
 
     public static class Leer{
         public static void R1(){
-            Compilador.cuadManager.agregarCuadruplo(Instrucciones.SCAN,-1,-1,Variable.getDireccion());
+            Compilador.cuadManager.agregarCuadruplo(Instrucciones.SCAN,-1,-1, Var1.getUltimaDireccion());
         }
     }
 
     public static class Escribir{
         public static void R1(){
-            Compilador.cuadManager.agregarCuadruplo(Instrucciones.WRITE,-1,-1,Variable.getDireccion());
+            Compilador.cuadManager.agregarCuadruplo(Instrucciones.WRITE,-1,-1, Var1.getUltimaDireccion());
         }
     }
 
@@ -187,8 +198,7 @@ public class Reglas {
     public static class Constante{
         public static int lastConstantDir = -1;
         public static void R1(int type, String variable){
-            lastConstantDir = Compilador.varManager.declararConstante(type,variable);
-            Compilador.cuadManager.agregarCuadruplo(Instrucciones.CONSTANT,variable,-1,lastConstantDir);
+            lastConstantDir = Compilador.varManager.declararConstante(type, variable);
         }
     }
 
@@ -214,15 +224,26 @@ public class Reglas {
 
     public static class Expresion {
         private static Stack<ExpresionesAritmeticas> exps = new Stack<>();
+        private static int deepness = 0;
+        public static int dirResult = Errors.VARIABLE_NO_DEFINIDA;
 
         // Se inicia a resolver una expresion aritmetica
         public static void IniciaExp() {
+            Expresion.deepness++;
             exps.push(new ExpresionesAritmeticas());
         }
 
         public static void TerminaExp() {
-            ExpresionesAritmeticas aux = exps.pop();
-            exps.peek().concatenate(aux.getResultado());
+            Expresion.deepness--;
+            exps.peek().endExpresion();
+            if(deepness == 0) {
+                dirResult = exps.pop().getDirResultado();
+            }
+        }
+
+        public static void CierraParentesis() {
+            int dirR = exps.pop().getDirResultado();
+            exps.peek().addValue(dirR);
         }
 
         public static void Factor(String ID){
@@ -240,4 +261,14 @@ public class Reglas {
         }
     }
 
+    public static class Out {
+
+        public static void imprimir() {
+
+        }
+
+        public static void leer() {
+
+        }
+    }
 }

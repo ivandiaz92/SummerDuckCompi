@@ -6,12 +6,19 @@ import java.util.Stack;
  * Created by ivandiaz on 6/25/16.
  */
 public class ExpresionesAritmeticas {
-    Stack<Integer> vectorPolaco;
-    LinkedList<Integer> resultado;
+    private Stack<Integer> vectorPolaco;
+    private LinkedList<Integer> resultado;
+
+    public int getDirResultado() {
+        return dirResultado;
+    }
+
+    private int dirResultado;
 
     ExpresionesAritmeticas() {
         vectorPolaco = new Stack<>();
         resultado = new LinkedList<>();
+        dirResultado = Errors.VARIABLE_NO_DEFINIDA;
     }
 
     public void addValue(int dir){
@@ -28,33 +35,34 @@ public class ExpresionesAritmeticas {
         int priorNewOP = Prioridades.getPriority(operatorCode);
 
 
-        while(vectorPolaco.size() != 0 && prioVP >= priorNewOP) {
+        while(prioVP >= priorNewOP) {
             resultado.add(vectorPolaco.pop());
+
+            if(vectorPolaco.isEmpty()){
+                break;
+            }
             prioVP = Prioridades.getPriority(vectorPolaco.peek());
         }
 
         vectorPolaco.add(Prioridades.parseOperator(operatorCode));
     }
 
-    public void concatenate(LinkedList<Integer> aux){
-        while (!aux.isEmpty()){
-            resultado.push(aux.getFirst());
-            aux.removeFirst();
+    public void finishHim() {
+        while(!vectorPolaco.isEmpty()){
+            resultado.add(vectorPolaco.pop());
         }
     }
 
-    public LinkedList<Integer> getResultado(){
-        return this.resultado;
-    }
-
     // FUncion que parsea un vector de resultados para crear los cuadruplos correspondientes a la expresion
-    public static void endExpresion(LinkedList<Integer> resultQUeue){
+    public void endExpresion(){
+        finishHim();
+
         Stack<Integer> auxStack = new Stack<>();
 
-        while(!resultQUeue.isEmpty()){
+        while(!resultado.isEmpty()){
 
-            int toRead = resultQUeue.getFirst();
-            resultQUeue.removeFirst();
+            int toRead = resultado.getFirst();
+            resultado.removeFirst();
 
             if(Prioridades.isParsedOperator(toRead)){
                 int operator = Prioridades.unparseOperator(toRead);
@@ -66,12 +74,16 @@ public class ExpresionesAritmeticas {
                 switch (operator){
                     case Prioridades.MULTIPLICACION:
                         Compilador.cuadManager.agregarCuadruplo(Instrucciones.MUL,dir1,dir2,dirR);
+                        break;
                     case Prioridades.DIVICION:
                         Compilador.cuadManager.agregarCuadruplo(Instrucciones.DIV,dir1,dir2,dirR);
+                        break;
                     case Prioridades.SUMA:
                         Compilador.cuadManager.agregarCuadruplo(Instrucciones.ADD,dir1,dir2,dirR);
+                        break;
                     case Prioridades.RESTA:
                         Compilador.cuadManager.agregarCuadruplo(Instrucciones.SUB,dir1,dir2,dirR);
+                        break;
                 }
 
                 auxStack.push(dirR);
@@ -80,6 +92,6 @@ public class ExpresionesAritmeticas {
                 auxStack.push(toRead);
             }
         }
-
+        dirResultado = auxStack.pop();
     }
 }

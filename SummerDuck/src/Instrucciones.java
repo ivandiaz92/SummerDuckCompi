@@ -8,5 +8,19 @@ public class Instrucciones {
     public static final int WRITE = 1006;
     public static final int CONSTANT = 1007;
     public static final int EOF = 1008;
+    public static final int AND = 1009;
+    public static final int OR = 1010;
+    public static final int LT = 1011; //<
+    public static final int GT = 1012; //>
+    public static final int EQT = 1013; //==
+    public static final int DIF = 1014; //!=
+    public static final int GOE = 1015; //>=
+    public static final int LOE = 1016; //<=
+    public static final int ADD = 1017; // +
+    public static final int SUB = 1018; // -
+    public static final int MUL = 1019; // *
+    public static final int DIV = 1020; // /
+    
+
 }
 

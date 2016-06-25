@@ -476,7 +476,8 @@ public class summerDuckParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(116);
-			match(ID);
+			Reglas.Var1.EntrandoAID(this.getCurrentToken().getText());
+            match(ID);
 			setState(117);
 			varaux();
 			}
@@ -1722,9 +1723,11 @@ public class summerDuckParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(248);
-			Reglas.Expresion.IniciaExp();exor();
+			Reglas.Expresion.IniciaExp();
+            exor();
 			setState(249);
 			expaux();
+            Reglas.Expresion.TerminaExp();
 			}
 		}
 		catch (RecognitionException re) {
@@ -1779,7 +1782,7 @@ public class summerDuckParser extends Parser {
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(252);
-				match(AND);
+				Reglas.Expresion.Operador(Prioridades.AND);match(AND);
 				setState(253);
 				exp();
 				}
@@ -1890,7 +1893,7 @@ public class summerDuckParser extends Parser {
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(260);
-				match(OR);
+				Reglas.Expresion.Operador(Prioridades.OR);match(OR);
 				setState(261);
 				exor();
 				}
@@ -2002,7 +2005,7 @@ public class summerDuckParser extends Parser {
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(268);
-				match(NEG);
+				Reglas.Expresion.Operador(Prioridades.NOT); match(NEG);
 				setState(269);
 				exnot();
 				}
@@ -2615,11 +2618,11 @@ public class summerDuckParser extends Parser {
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(319);
-				match(LP);Reglas.Expresion.IniciaExp();
+				match(LP);
 				setState(320);
 				exp();
 				setState(321);
-				match(RP);Reglas.Expresion.TerminaExp();
+				match(RP);Reglas.Expresion.CierraParentesis();
 				}
 				break;
 			case 3:

@@ -12,6 +12,7 @@ public class Errors {
     public static final int STACKOVERFLOW = -405;
     public static final int UNKNOWN_TYPE = -406;
     public static final int UNKNOWN_SCOPE = -407;
+    public static final int OPERADOR_ILEGAL = -408;
 
     public static String getMessage(int error_code){
         switch (error_code){

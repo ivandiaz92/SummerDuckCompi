@@ -22,6 +22,7 @@ public class Prioridades {
 
 
     public static int getPriority(int codigoDeOperador){
+        codigoDeOperador = codigoDeOperador >= 28000 ? codigoDeOperador - 28000 : codigoDeOperador;
 
         switch (codigoDeOperador){
 

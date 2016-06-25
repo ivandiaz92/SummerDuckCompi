@@ -2,7 +2,7 @@ public class Cubo {
     private static Cubo instancia = new Cubo();
 
     // objeto
-    private int cubito[][][]= new int [4][4][14];
+    private int cubito[][][];
 
     // metodos
     public static int esValido(int op1, int op2, int oper){
@@ -30,14 +30,18 @@ public class Cubo {
     public static final int MEI = 10; // <=
     public static final int MAI = 11; // >=
     public static final int EQU = 12; // ==
-    //public static int NOT = 37; // ¡
+
+
     public static final int DIF = 13; // !=
+    public static final int NOT = 14; // ¡
 
     // Error
     public static final int ERROR = Errors.OPERACION_ILEGAL;
 
     // Reglas semanticas
     public Cubo(){
+        cubito = new int [4][4][15];
+
         // ENTEROOO
         //SUMA
         cubito[ENTERO][ENTERO][SUMA] = ENTERO;
@@ -335,5 +339,10 @@ public class Cubo {
         cubito[BOLEANO][REAL][ASIGN] = ERROR;
         cubito[BOLEANO][CARACTER][ASIGN] = ERROR;
         cubito[BOLEANO][BOLEANO][ASIGN] = BOLEANO;
+
+        cubito[BOLEANO][ENTERO][NOT] = ERROR;
+        cubito[BOLEANO][REAL][NOT] = ERROR;
+        cubito[BOLEANO][CARACTER][NOT] = ERROR;
+        cubito[BOLEANO][BOLEANO][NOT] = BOLEANO;
     }
 }
