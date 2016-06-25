@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class Reglas {
@@ -59,9 +62,6 @@ public class Reglas {
                     Type.tipo = Compilador.ManejadorDeMemoria.Memoria.VAR_BOOL;
                     break;
             }        }
-    }
-
-    public static class Expresion{
     }
 
     public static class Condicional{
@@ -210,4 +210,34 @@ public class Reglas {
             Compilador.cuadManager.agregarCuadruplo(Instrucciones.EOF,-1,-1,-1);
         }
     }
+
+
+    public static class Expresion {
+        private static Stack<ExpresionesAritmeticas> exps = new Stack<>();
+
+        // Se inicia a resolver una expresion aritmetica
+        public static void IniciaExp() {
+            exps.push(new ExpresionesAritmeticas());
+        }
+
+        public static void TerminaExp() {
+            ExpresionesAritmeticas aux = exps.pop();
+            exps.peek().concatenate(aux.getResultado());
+        }
+
+        public static void Factor(String ID){
+            int dir = Compilador.varManager.obtenDireccion(ID);
+            exps.peek().addValue(dir);
+        }
+
+        public static void CTE(int tipo, String value){
+            int dir = Compilador.varManager.obtenerConstante(tipo,value);
+            exps.peek().addValue(dir);
+        }
+
+        public static void Operador(int op){
+            exps.peek().addOperator(op);
+        }
+    }
+
 }

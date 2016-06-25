@@ -55,13 +55,6 @@ public class Compilador {
 
             public int output;
 
-            public Cuadruplo(int operando, int operador1, int operador2, int output) {
-                this.operando = operando;
-                this.operador1 = operador1;
-                this.operador2 = operador2;
-                this.output = output;
-            }
-
             public Cuadruplo(int operando, Object operador1, int operador2, int output){
                 this.operando = operando;
                 this.operador1 = operador1;
@@ -174,12 +167,19 @@ public class Compilador {
         }
 
         public int declararConstante(int tipo, String id){
+            id = tipo + "-" +id;
+
             if(variablesConstantes.obtenerDireccionVar(id) != Errors.VARIABLE_NO_DEFINIDA){
                 return  variablesConstantes.obtenerDireccionVar(id);
             }
             int direccion = memManager.reservarEspacioEnMemoria(ManejadorDeMemoria.Memoria.SCOPE_CONSTANTE,tipo);
             variablesConstantes.agregarVariable(tipo,id,direccion);
             return direccion;
+        }
+
+
+        public int obtenerConstante(int tipo, String id){
+            return declararConstante(tipo,id);
         }
     }
 
@@ -218,6 +218,10 @@ public class Compilador {
                     return Errors.UNKNOWN_SCOPE;
             }
 
+        }
+
+        public int reservarNuevaTemporal(int type){
+            return reservarEspacioEnMemoria(Memoria.SCOPE_TEMPORAL,type);
         }
 
         public static class Memoria{

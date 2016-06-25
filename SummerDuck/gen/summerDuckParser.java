@@ -1722,7 +1722,7 @@ public class summerDuckParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(248);
-			exor();
+			Reglas.Expresion.IniciaExp();exor();
 			setState(249);
 			expaux();
 			}
@@ -2120,7 +2120,7 @@ public class summerDuckParser extends Parser {
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(276);
-				match(MAYOR);
+				Reglas.Expresion.Operador(Prioridades.MAYOR);match(MAYOR);
 				setState(277);
 				exlog();
 				}
@@ -2129,7 +2129,7 @@ public class summerDuckParser extends Parser {
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(278);
-				match(MENOR);
+                Reglas.Expresion.Operador(Prioridades.MENOR);match(MENOR);
 				setState(279);
 				exlog();
 				}
@@ -2138,7 +2138,7 @@ public class summerDuckParser extends Parser {
 				enterOuterAlt(_localctx, 4);
 				{
 				setState(280);
-				match(MAYORI);
+                Reglas.Expresion.Operador(Prioridades.MAYORIGUAL);match(MAYORI);
 				setState(281);
 				exlog();
 				}
@@ -2147,7 +2147,7 @@ public class summerDuckParser extends Parser {
 				enterOuterAlt(_localctx, 5);
 				{
 				setState(282);
-				match(MENORI);
+                Reglas.Expresion.Operador(Prioridades.MENORIGUAL);match(MENORI);
 				setState(283);
 				exlog();
 				}
@@ -2156,7 +2156,7 @@ public class summerDuckParser extends Parser {
 				enterOuterAlt(_localctx, 6);
 				{
 				setState(284);
-				match(EQUIV);
+                Reglas.Expresion.Operador(Prioridades.EQUIVALENTE);match(EQUIV);
 				setState(285);
 				exlog();
 				}
@@ -2165,7 +2165,7 @@ public class summerDuckParser extends Parser {
 				enterOuterAlt(_localctx, 7);
 				{
 				setState(286);
-				match(DIF);
+                Reglas.Expresion.Operador(Prioridades.DIFERENTE);match(DIF);
 				setState(287);
 				exlog();
 				}
@@ -2284,7 +2284,7 @@ public class summerDuckParser extends Parser {
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(294);
-				match(MOD);
+				Reglas.Expresion.Operador(Prioridades.MOD);match(MOD);
 				setState(295);
 				exmod();
 				}
@@ -2405,7 +2405,7 @@ public class summerDuckParser extends Parser {
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(302);
-				match(SUMA);
+				Reglas.Expresion.Operador(Prioridades.SUMA);match(SUMA);
 				setState(303);
 				ex();
 				}
@@ -2414,7 +2414,7 @@ public class summerDuckParser extends Parser {
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(304);
-				match(RESTA);
+				Reglas.Expresion.Operador(Prioridades.RESTA);match(RESTA);
 				setState(305);
 				ex();
 				}
@@ -2537,7 +2537,7 @@ public class summerDuckParser extends Parser {
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(312);
-				match(MULT);
+				Reglas.Expresion.Operador(Prioridades.MULTIPLICACION);match(MULT);
 				setState(313);
 				termino();
 				}
@@ -2546,7 +2546,7 @@ public class summerDuckParser extends Parser {
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(314);
-				match(DIV);
+				Reglas.Expresion.Operador(Prioridades.DIVICION);match(DIV);
 				setState(315);
 				termino();
 				}
@@ -2615,11 +2615,11 @@ public class summerDuckParser extends Parser {
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(319);
-				match(LP);
+				match(LP);Reglas.Expresion.IniciaExp();
 				setState(320);
 				exp();
 				setState(321);
-				match(RP);
+				match(RP);Reglas.Expresion.TerminaExp();
 				}
 				break;
 			case 3:
@@ -2633,7 +2633,7 @@ public class summerDuckParser extends Parser {
 				enterOuterAlt(_localctx, 4);
 				{
 				setState(324);
-				match(ID);
+				Reglas.Expresion.Factor(this.getCurrentToken().getText());match(ID);
 				}
 				break;
 			case 5:
@@ -2641,6 +2641,7 @@ public class summerDuckParser extends Parser {
 				{
 				setState(325);
                 Reglas.Constante.R1(Compilador.ManejadorDeMemoria.Memoria.VAR_INT, this.getCurrentToken().getText());
+				Reglas.Expresion.CTE(Compilador.ManejadorDeMemoria.Memoria.VAR_INT, this.getCurrentToken().getText());
 				match(CTE_I);
 				}
 				break;
@@ -2649,6 +2650,7 @@ public class summerDuckParser extends Parser {
 				{
 				setState(326);
                 Reglas.Constante.R1(Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT, this.getCurrentToken().getText());
+					Reglas.Expresion.CTE(Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT, this.getCurrentToken().getText());
 				match(CTE_F);
 				}
 				break;
@@ -2657,6 +2659,7 @@ public class summerDuckParser extends Parser {
 				{
 				setState(327);
                 Reglas.Constante.R1(Compilador.ManejadorDeMemoria.Memoria.VAR_STRING, this.getCurrentToken().getText());
+				Reglas.Expresion.CTE(Compilador.ManejadorDeMemoria.Memoria.VAR_STRING, this.getCurrentToken().getText());
 				match(CTE_C);
 				}
 				break;
@@ -2665,6 +2668,7 @@ public class summerDuckParser extends Parser {
 				{
 				setState(328);
                 Reglas.Constante.R1(Compilador.ManejadorDeMemoria.Memoria.VAR_BOOL, "false");
+				Reglas.Expresion.CTE(Compilador.ManejadorDeMemoria.Memoria.VAR_BOOL, "false");
 				match(CTE_BF);
 				}
 				break;
@@ -2673,6 +2677,7 @@ public class summerDuckParser extends Parser {
 				{
 				setState(329);
                 Reglas.Constante.R1(Compilador.ManejadorDeMemoria.Memoria.VAR_BOOL, "true");
+				Reglas.Expresion.CTE(Compilador.ManejadorDeMemoria.Memoria.VAR_BOOL, "true");
 				match(CTE_BT);
 				}
 				break;
