@@ -3,7 +3,7 @@ grammar summerDuck;
 
 
 PROG: 'programa';
-MAIN: 'principal';
+MAIN2: 'principal';
 INT: 'entero';
 FLOAT: 'real';
 CHAR: 'char';
@@ -57,7 +57,7 @@ WS: [ \n\t\r]+ -> skip;
 summerduck: PROG ID PC vardec asignations fundef main
 	;
 
-main: MAIN LP RP LK vardec statements RK
+main: MAIN2 LP RP LK vardec statements RK
 	;
 
 vardec:
@@ -104,19 +104,19 @@ paramsaux2:
 		;
 
 statements:
-		| varAsign
-		| leer
-		| escribir
-		| ifelse
-		| while_statement
-		| dowhile
+        | varAsign statements
+		| leer statements
+		| escribir statements
+		| ifelse statements
+		| while_statement statements
+		| dowhile statements
 		;
 
 asignations:
     | varAsign asignations
     ;
 
-varAsign: var IGUAL exp PC statements
+varAsign: var IGUAL exp PC
     ;
 
 leer: SCAN LP leeraux RP PC
