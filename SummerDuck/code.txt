@@ -17,4 +17,13 @@ principal(){
     real: b,b2;
     char: c,c2;
     boleano: d,d2;
+
+
+    x = 1;
+
+    mientras ( x < 10 ) haz
+    {
+        x = x + 1;
+    }
+
 }

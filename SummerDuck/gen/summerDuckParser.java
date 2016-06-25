@@ -1396,7 +1396,7 @@ public class summerDuckParser extends Parser {
 			setState(207);
 			match(LP);
 			setState(208);
-			exp();
+			exp();Reglas.Escribir.R1();
 			setState(209);
 			match(RP);
 			setState(210);

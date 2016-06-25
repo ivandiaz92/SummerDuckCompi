@@ -20,7 +20,77 @@ public class Instrucciones {
     public static final int SUB = 1018; // -
     public static final int MUL = 1019; // *
     public static final int DIV = 1020; // /
-    
 
+    public static String parse(int code){
+        String msg = code + "";
+
+        switch (code){
+            case GOTO :
+                msg = "GOTO";
+                break;
+            case GOTOF :
+                msg = "GOTOF";
+                break;
+            case GOTOT :
+                msg = "GOTOT";
+                break;
+            case VARDECL :
+                msg = "VARDECL";
+                break;
+            case ASIGNATION :
+                msg = "ASIGNATION";
+                break;
+            case SCAN :
+                msg = "SCAN";
+                break;
+            case WRITE :
+                msg = "WRITE";
+                break;
+            case CONSTANT :
+                msg = "CONSTANT";
+                break;
+            case EOF :
+                msg = "EOF";
+                break;
+            case AND :
+                msg = "AND";
+                break;
+            case OR :
+                msg = "OR";
+                break;
+            case LT :
+                msg = "<";
+                break;
+            case GT :
+                msg = ">";
+                break;
+            case EQT :
+                msg = "==";
+                break;
+            case DIF :
+                msg = "!=";
+                break;
+            case GOE :
+                msg = ">=";
+                break;
+            case LOE :
+                msg = "<=";
+                break;
+            case ADD :
+                msg = "+";
+                break;
+            case SUB :
+                msg = "-";
+                break;
+            case MUL :
+                msg = "*";
+                break;
+            case DIV :
+                msg = "/";
+                break;
+        }
+
+        return msg;
+    }
 }
 

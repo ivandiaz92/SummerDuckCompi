@@ -179,7 +179,7 @@ public class Reglas {
 
     public static class Escribir{
         public static void R1(){
-            Compilador.cuadManager.agregarCuadruplo(Instrucciones.WRITE,-1,-1, Var1.getUltimaDireccion());
+            Compilador.cuadManager.agregarCuadruplo(Instrucciones.WRITE,-1,-1, Expresion.dirResult);
         }
     }
 
@@ -261,14 +261,4 @@ public class Reglas {
         }
     }
 
-    public static class Out {
-
-        public static void imprimir() {
-
-        }
-
-        public static void leer() {
-
-        }
-    }
 }
