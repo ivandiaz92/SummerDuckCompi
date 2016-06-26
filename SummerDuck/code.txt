@@ -1,23 +1,13 @@
 programa wibi;
 
-entero: x,x2;
-real: y,y2;
-char: z,z2;
-boleano: m,m2;
+entero: x;
+char: msg;
 
-y = 3 / 4 * ( 1 + (2 * 3 - 2 - 3 / ( 4 * 2) ) - 5 )* 2;
-
-m = verdadero;
-m2 = falso;
-m2 = verdadero;
-
+x = 1;
+msg = "Ivan Diaz Was Here";
 
 principal(){
-    entero: a,a2;
-    real: b,b2;
-    char: c,c2;
-    boleano: d,d2;
-
+	real: y;
 
     x = 1;
 
@@ -26,4 +16,18 @@ principal(){
         x = x + 1;
     }
 
+    y = 0.4;
+
+    mientras ( y < 3.5 ) haz {
+    	y = y + 0.5;
+
+    }
+
+    x = 1;
+    y = 20;
+
+    repite {
+    	x = x + 1;
+    	y = y - 0.5;
+    } hasta ( x < y / 2);
 }

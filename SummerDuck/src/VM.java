@@ -1,7 +1,5 @@
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Stack;
-import java.util.*;
 import java.lang.*;
 
 
@@ -43,23 +41,30 @@ public class VM {
                 }
 
                 Compilador.ManejadorDeCuadruplos.Cuadruplo cuad = cuadruplos.get(i);
-                //System.out.println(cuad.operando + " " + cuad.operador1 + " " + cuad.operador2 + " " + cuad.output);
+                //System.out.println(cuad.operador + " " + cuad.operando1 + " " + cuad.operando2 + " " + cuad.output);
 
                 print(i + ") ");
 
-                switch (cuad.operando){
+                switch (cuad.operador){
                     case Instrucciones.GOTO:
                         i = cuad.output - 1;
                         println("GOTO -> " + (i + 1));
                         break;
                     case Instrucciones.GOTOT:
-                        println("GOTOT -> " + (i + 1));
+                        if(memVirtual.obtenerBoolean((int)cuad.operando1)){
+                            i = cuad.output - 1;
+                            println("GOTOT[true] -> " + (i + 1));
+                            break;
+                        }
+                        println("GOTOT[false] -> " + cuad.output);
                         break;
                     case Instrucciones.GOTOF:
-                        //if(!memVirtual.obtenerBoolean((int)cuad.operador1)){
+                        if(!memVirtual.obtenerBoolean((int)cuad.operando1)){
                             i = cuad.output - 1;
-                        //}
-                        println("GOTOF -> " + (i + 1));
+                            println("GOTOF[false] -> " + (i + 1));
+                            break;
+                        }
+                        println("GOTOF[true] -> " + cuad.output);
                         break;
 
                     case Instrucciones.VARDECL:
@@ -68,13 +73,13 @@ public class VM {
                         break;
 
                     case Instrucciones.CONSTANT:
-                        println("Constante [" + cuad.operador1 + "] -> " + cuad.output);
-                        memVirtual.declararConstante(cuad.output,cuad.operador1.toString());
+                        println("Constante [" + cuad.operando1 + "] -> " + cuad.output);
+                        memVirtual.declararConstante(cuad.output,cuad.operando1.toString());
                         break;
 
                     case Instrucciones.ASIGNATION:
-                        println("Asignacion -> " + cuad.operador1 + " = " + cuad.output);
-                        tipoIn = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operador1);
+                        println("Asignacion -> " + cuad.operando1 + " = " + cuad.output);
+                        tipoIn = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operando1);
                         tipoOut = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.output);
 
                         tipoR = Cubo.esValido(tipoIn,tipoOut,Cubo.ASIGN);
@@ -88,10 +93,10 @@ public class VM {
                             case Compilador.ManejadorDeMemoria.Memoria.VAR_INT:
                                 switch (tipoIn){
                                     case Compilador.ManejadorDeMemoria.Memoria.VAR_INT:
-                                        memVirtual.asignarInt(cuad.output,memVirtual.obtenerInt((int)cuad.operador1));
+                                        memVirtual.asignarInt(cuad.output,memVirtual.obtenerInt((int)cuad.operando1));
                                         break;
                                     case Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT:
-                                        memVirtual.asignarInt(cuad.output,(int)memVirtual.obtenerDouble((int)cuad.operador1));
+                                        memVirtual.asignarInt(cuad.output,(int)memVirtual.obtenerDouble((int)cuad.operando1));
                                         break;
                                 }
                                 break;
@@ -99,10 +104,10 @@ public class VM {
                             case Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT:
                                 switch (tipoIn){
                                     case Compilador.ManejadorDeMemoria.Memoria.VAR_INT:
-                                        memVirtual.asignarDouble(cuad.output,memVirtual.obtenerInt((int)cuad.operador1));
+                                        memVirtual.asignarDouble(cuad.output,memVirtual.obtenerInt((int)cuad.operando1));
                                         break;
                                     case Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT:
-                                        memVirtual.asignarDouble(cuad.output,memVirtual.obtenerDouble((int)cuad.operador1));
+                                        memVirtual.asignarDouble(cuad.output,memVirtual.obtenerDouble((int)cuad.operando1));
                                         break;
                                 }
                                 break;
@@ -110,14 +115,14 @@ public class VM {
                             case Compilador.ManejadorDeMemoria.Memoria.VAR_BOOL:
                                 switch (tipoIn){
                                     case Compilador.ManejadorDeMemoria.Memoria.VAR_BOOL:
-                                        memVirtual.asignarBoolean(cuad.output,memVirtual.obtenerBoolean((int)cuad.operador1));
+                                        memVirtual.asignarBoolean(cuad.output,memVirtual.obtenerBoolean((int)cuad.operando1));
                                         break;
                                 }
                                 break;
                             case Compilador.ManejadorDeMemoria.Memoria.VAR_STRING:
                                 switch (tipoIn){
                                     case Compilador.ManejadorDeMemoria.Memoria.VAR_STRING:
-                                        memVirtual.asignarString(cuad.output,memVirtual.obtenerString((int)cuad.operador1));
+                                        memVirtual.asignarString(cuad.output,memVirtual.obtenerString((int)cuad.operando1));
                                         break;
                                 }
                                 break;
@@ -126,229 +131,236 @@ public class VM {
                         break;
 
                     case Instrucciones.AND:
-                        println("AND -> " + cuad.operador1 + "&&" + cuad.operador2 + " = " + cuad.output);
-                        memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerBoolean((int)cuad.operador1) && memVirtual.obtenerBoolean(cuad.operador2));
+                        println("AND -> " + cuad.operando1 + "&&" + cuad.operando2 + " = " + cuad.output);
+                        memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerBoolean((int)cuad.operando1) && memVirtual.obtenerBoolean(cuad.operando2));
                         break;
 
                     case Instrucciones.OR:
-                        println("OR -> " + cuad.operador1 + "||" + cuad.operador2 + " = " + cuad.output);
-                        memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerBoolean((int)cuad.operador1) || memVirtual.obtenerBoolean(cuad.operador2));
+                        println("OR -> " + cuad.operando1 + "||" + cuad.operando2 + " = " + cuad.output);
+                        memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerBoolean((int)cuad.operando1) || memVirtual.obtenerBoolean(cuad.operando2));
                         break;
 
                     case Instrucciones.LT:
-                       // println("Less Than -> " + cuad.operador1 + "<" + cuad.operador2 + " = " + cuad.output);
-                        tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operador1);
-                        tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operador2);
+                        println(cuad.operando1 + " < " + cuad.operando2 + " = " + cuad.output);
+                        tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operando1);
+                        tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operando2);
 
                         if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
                             if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
-                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerInt((int)cuad.operador1) < memVirtual.obtenerInt(cuad.operador2));
+                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerInt((int)cuad.operando1) < memVirtual.obtenerInt(cuad.operando2));
                             } else if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT) {
-                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerInt((int)cuad.operador1) < memVirtual.obtenerDouble(cuad.operador2));;
+                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerInt((int)cuad.operando1) < memVirtual.obtenerDouble(cuad.operando2));;
                             }
                         }
                         else if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT){
                             if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
-                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerDouble((int)cuad.operador1) < memVirtual.obtenerInt(cuad.operador2));
+                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerDouble((int)cuad.operando1) < memVirtual.obtenerInt(cuad.operando2));
                             }
                             else if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT){
-                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerDouble((int)cuad.operador1) < memVirtual.obtenerDouble(cuad.operador2));
+                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerDouble((int)cuad.operando1) < memVirtual.obtenerDouble(cuad.operando2));
                             }
                         }
                         break;
 
                     case Instrucciones.GT:
-                        tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operador1);
-                        tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operador2);
+                        println(cuad.operando1 + " > " + cuad.operando2 + " = " + cuad.output);
+                        tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operando1);
+                        tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operando2);
 
                         if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
                             if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
-                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerInt((int)cuad.operador1) > memVirtual.obtenerInt(cuad.operador2));
+                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerInt((int)cuad.operando1) > memVirtual.obtenerInt(cuad.operando2));
                             } else if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT) {
-                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerInt((int)cuad.operador1) > memVirtual.obtenerDouble(cuad.operador2));;
+                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerInt((int)cuad.operando1) > memVirtual.obtenerDouble(cuad.operando2));;
                             }
                         }
                         else if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT){
                             if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
-                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerDouble((int)cuad.operador1) > memVirtual.obtenerInt(cuad.operador2));
+                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerDouble((int)cuad.operando1) > memVirtual.obtenerInt(cuad.operando2));
                             }
                             else if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT){
-                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerDouble((int)cuad.operador1) > memVirtual.obtenerDouble(cuad.operador2));
+                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerDouble((int)cuad.operando1) > memVirtual.obtenerDouble(cuad.operando2));
                             }
                         }
                         break;
 
                     case Instrucciones.EQT:
-                        tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operador1);
-                        tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operador2);
+                        println(cuad.operando1 + " == " + cuad.operando2 + " = " + cuad.output);
+                        tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operando1);
+                        tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operando2);
 
                         if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
                             if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
-                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerInt((int)cuad.operador1) == memVirtual.obtenerInt(cuad.operador2));
+                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerInt((int)cuad.operando1) == memVirtual.obtenerInt(cuad.operando2));
                             } else if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT) {
-                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerInt((int)cuad.operador1) == memVirtual.obtenerDouble(cuad.operador2));;
+                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerInt((int)cuad.operando1) == memVirtual.obtenerDouble(cuad.operando2));;
                             }
                         }
                         else if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT){
                             if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
-                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerDouble((int)cuad.operador1) == memVirtual.obtenerInt(cuad.operador2));
+                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerDouble((int)cuad.operando1) == memVirtual.obtenerInt(cuad.operando2));
                             }
                             else if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT){
-                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerDouble((int)cuad.operador1) == memVirtual.obtenerDouble(cuad.operador2));
+                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerDouble((int)cuad.operando1) == memVirtual.obtenerDouble(cuad.operando2));
                             }
                         }
                         break;
 
                     case Instrucciones.DIF:
-                        tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operador1);
-                        tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operador2);
+                        println(cuad.operando1 + " != " + cuad.operando2 + " = " + cuad.output);
+                        tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operando1);
+                        tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operando2);
 
                         if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
                             if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
-                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerInt((int)cuad.operador1) != memVirtual.obtenerInt(cuad.operador2));
+                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerInt((int)cuad.operando1) != memVirtual.obtenerInt(cuad.operando2));
                             } else if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT) {
-                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerInt((int)cuad.operador1) != memVirtual.obtenerDouble(cuad.operador2));;
+                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerInt((int)cuad.operando1) != memVirtual.obtenerDouble(cuad.operando2));;
                             }
                         }
                         else if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT){
                             if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
-                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerDouble((int)cuad.operador1) != memVirtual.obtenerInt(cuad.operador2));
+                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerDouble((int)cuad.operando1) != memVirtual.obtenerInt(cuad.operando2));
                             }
                             else if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT){
-                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerDouble((int)cuad.operador1) != memVirtual.obtenerDouble(cuad.operador2));
+                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerDouble((int)cuad.operando1) != memVirtual.obtenerDouble(cuad.operando2));
                             }
                         }
                         break;
 
                     case Instrucciones.GOE:
-                        tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operador1);
-                        tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operador2);
+                        tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operando1);
+                        tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operando2);
 
                         if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
                             if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
-                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerInt((int)cuad.operador1) >= memVirtual.obtenerInt(cuad.operador2));
+                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerInt((int)cuad.operando1) >= memVirtual.obtenerInt(cuad.operando2));
                             } else if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT) {
-                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerInt((int)cuad.operador1) >= memVirtual.obtenerDouble(cuad.operador2));;
+                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerInt((int)cuad.operando1) >= memVirtual.obtenerDouble(cuad.operando2));;
                             }
                         }
                         else if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT){
                             if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
-                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerDouble((int)cuad.operador1) >= memVirtual.obtenerInt(cuad.operador2));
+                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerDouble((int)cuad.operando1) >= memVirtual.obtenerInt(cuad.operando2));
                             }
                             else if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT){
-                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerDouble((int)cuad.operador1) >= memVirtual.obtenerDouble(cuad.operador2));
+                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerDouble((int)cuad.operando1) >= memVirtual.obtenerDouble(cuad.operando2));
                             }
                         }
                         break;
 
                     case Instrucciones.LOE:
-                        tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operador1);
-                        tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operador2);
+                        tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operando1);
+                        tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operando2);
 
                         if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
                             if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
-                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerInt((int)cuad.operador1) <= memVirtual.obtenerInt(cuad.operador2));
+                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerInt((int)cuad.operando1) <= memVirtual.obtenerInt(cuad.operando2));
                             } else if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT) {
-                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerInt((int)cuad.operador1) <= memVirtual.obtenerDouble(cuad.operador2));;
+                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerInt((int)cuad.operando1) <= memVirtual.obtenerDouble(cuad.operando2));;
                             }
                         }
                         else if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT){
                             if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
-                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerDouble((int)cuad.operador1) <= memVirtual.obtenerInt(cuad.operador2));
+                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerDouble((int)cuad.operando1) <= memVirtual.obtenerInt(cuad.operando2));
                             }
                             else if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT){
-                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerDouble((int)cuad.operador1) <= memVirtual.obtenerDouble(cuad.operador2));
+                                memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerDouble((int)cuad.operando1) <= memVirtual.obtenerDouble(cuad.operando2));
                             }
                         }
                         break;
 
                     case Instrucciones.ADD:
-                        tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operador1);
-                        tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operador2);
+                        println(cuad.operando1 + " + " + cuad.operando2 + " = " + cuad.output);
+                        tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operando1);
+                        tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operando2);
 
                         if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
                             if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
-                                memVirtual.asignarInt(cuad.output, memVirtual.obtenerInt((int)cuad.operador1) + memVirtual.obtenerInt(cuad.operador2));
+                                memVirtual.asignarInt(cuad.output, memVirtual.obtenerInt((int)cuad.operando1) + memVirtual.obtenerInt(cuad.operando2));
                             }
                             else if(tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT){
-                                memVirtual.asignarDouble(cuad.output, memVirtual.obtenerInt((int)cuad.operador1) + memVirtual.obtenerDouble(cuad.operador2));
+                                memVirtual.asignarDouble(cuad.output, memVirtual.obtenerInt((int)cuad.operando1) + memVirtual.obtenerDouble(cuad.operando2));
                             }
                         }
                         else if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT){
                             if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
-                                memVirtual.asignarDouble(cuad.output, memVirtual.obtenerDouble((int)cuad.operador1) + memVirtual.obtenerInt(cuad.operador2));
+                                memVirtual.asignarDouble(cuad.output, memVirtual.obtenerDouble((int)cuad.operando1) + memVirtual.obtenerInt(cuad.operando2));
                             }
                             else if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT){
-                                memVirtual.asignarDouble(cuad.output, memVirtual.obtenerDouble((int)cuad.operador1) + memVirtual.obtenerDouble(cuad.operador2));
+                                memVirtual.asignarDouble(cuad.output, memVirtual.obtenerDouble((int)cuad.operando1) + memVirtual.obtenerDouble(cuad.operando2));
                             }
                         }
                         else if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_STRING && tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_STRING){
-                            memVirtual.asignarString(cuad.output, memVirtual.obtenerString((int)cuad.operador1) + memVirtual.obtenerString(cuad.operador2));
+                            memVirtual.asignarString(cuad.output, memVirtual.obtenerString((int)cuad.operando1) + memVirtual.obtenerString(cuad.operando2));
                         }
                         break;
 
                     case Instrucciones.SUB:
-                        tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operador1);
-                        tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operador2);
+                        println(cuad.operando1 + " - " + cuad.operando2 + " = " + cuad.output);
+                        tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operando1);
+                        tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operando2);
 
                         if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
                             if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
-                                memVirtual.asignarInt(cuad.output, memVirtual.obtenerInt((int)cuad.operador1) - memVirtual.obtenerInt(cuad.operador2));
+                                memVirtual.asignarInt(cuad.output, memVirtual.obtenerInt((int)cuad.operando1) - memVirtual.obtenerInt(cuad.operando2));
                             }
                             else if(tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT){
-                                memVirtual.asignarDouble(cuad.output, memVirtual.obtenerInt((int)cuad.operador1) - memVirtual.obtenerDouble(cuad.operador2));
+                                memVirtual.asignarDouble(cuad.output, memVirtual.obtenerInt((int)cuad.operando1) - memVirtual.obtenerDouble(cuad.operando2));
                             }
                         }
                         else if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT){
                             if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
-                                memVirtual.asignarDouble(cuad.output, memVirtual.obtenerDouble((int)cuad.operador1) - memVirtual.obtenerInt(cuad.operador2));
+                                memVirtual.asignarDouble(cuad.output, memVirtual.obtenerDouble((int)cuad.operando1) - memVirtual.obtenerInt(cuad.operando2));
                             }
                             else if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT){
-                                memVirtual.asignarDouble(cuad.output, memVirtual.obtenerDouble((int)cuad.operador1) - memVirtual.obtenerDouble(cuad.operador2));
+                                memVirtual.asignarDouble(cuad.output, memVirtual.obtenerDouble((int)cuad.operando1) - memVirtual.obtenerDouble(cuad.operando2));
                             }
                         }
                         break;
 
                     case Instrucciones.MUL:
-                        tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operador1);
-                        tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operador2);
+                        println(cuad.operando1 + " * " + cuad.operando2 + " = " + cuad.output);
+                        tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operando1);
+                        tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operando2);
 
                         if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
                             if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
-                                memVirtual.asignarInt(cuad.output, memVirtual.obtenerInt((int)cuad.operador1) * memVirtual.obtenerInt(cuad.operador2));
+                                memVirtual.asignarInt(cuad.output, memVirtual.obtenerInt((int)cuad.operando1) * memVirtual.obtenerInt(cuad.operando2));
                             }
                             else if(tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT){
-                                memVirtual.asignarDouble(cuad.output, memVirtual.obtenerInt((int)cuad.operador1) * memVirtual.obtenerDouble(cuad.operador2));
+                                memVirtual.asignarDouble(cuad.output, memVirtual.obtenerInt((int)cuad.operando1) * memVirtual.obtenerDouble(cuad.operando2));
                             }
                         }
                         else if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT){
                             if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
-                                memVirtual.asignarDouble(cuad.output, memVirtual.obtenerDouble((int)cuad.operador1) * memVirtual.obtenerInt(cuad.operador2));
+                                memVirtual.asignarDouble(cuad.output, memVirtual.obtenerDouble((int)cuad.operando1) * memVirtual.obtenerInt(cuad.operando2));
                             }
                             else if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT){
-                                memVirtual.asignarDouble(cuad.output, memVirtual.obtenerDouble((int)cuad.operador1) * memVirtual.obtenerDouble(cuad.operador2));
+                                memVirtual.asignarDouble(cuad.output, memVirtual.obtenerDouble((int)cuad.operando1) * memVirtual.obtenerDouble(cuad.operando2));
                             }
                         }
                         break;
 
                     case Instrucciones.DIV:
-                        tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operador1);
-                        tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operador2);
+                        println(cuad.operando1 + " / " + cuad.operando2 + " = " + cuad.output);
+                        tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operando1);
+                        tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operando2);
 
                         if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
                             if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
-                                memVirtual.asignarInt(cuad.output, memVirtual.obtenerInt((int)cuad.operador1) / memVirtual.obtenerInt(cuad.operador2));
+                                memVirtual.asignarInt(cuad.output, memVirtual.obtenerInt((int)cuad.operando1) / memVirtual.obtenerInt(cuad.operando2));
                             }
                             else if(tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT){
-                                memVirtual.asignarDouble(cuad.output, memVirtual.obtenerInt((int)cuad.operador1) / memVirtual.obtenerDouble(cuad.operador2));
+                                memVirtual.asignarDouble(cuad.output, memVirtual.obtenerInt((int)cuad.operando1) / memVirtual.obtenerDouble(cuad.operando2));
                             }
                         }
                         else if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT){
                             if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
-                                memVirtual.asignarDouble(cuad.output, memVirtual.obtenerDouble((int)cuad.operador1) / memVirtual.obtenerInt(cuad.operador2));
+                                memVirtual.asignarDouble(cuad.output, memVirtual.obtenerDouble((int)cuad.operando1) / memVirtual.obtenerInt(cuad.operando2));
                             }
                             else if (tipo2 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT){
-                                memVirtual.asignarDouble(cuad.output, memVirtual.obtenerDouble((int)cuad.operador1) / memVirtual.obtenerDouble(cuad.operador2));
+                                memVirtual.asignarDouble(cuad.output, memVirtual.obtenerDouble((int)cuad.operando1) / memVirtual.obtenerDouble(cuad.operando2));
                             }
                         }
                         break;
@@ -359,7 +371,7 @@ public class VM {
                         break;
 
                     default:
-                        System.out.println(cuad.operando + " " + cuad.operador1 + " " + cuad.operador2 + " " + cuad.output);
+                        System.out.println(cuad.operador + " " + cuad.operando1 + " " + cuad.operando2 + " " + cuad.output);
                         break;
                 }
 

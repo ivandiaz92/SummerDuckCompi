@@ -1016,7 +1016,6 @@ public class summerDuckParser extends Parser {
 			setState(190);
 			switch (_input.LA(1)) {
 			case RETURN:
-			case LK:
 			case RK:
 				enterOuterAlt(_localctx, 1);
 				{
@@ -1535,7 +1534,6 @@ public class summerDuckParser extends Parser {
 			case DO:
 			case SCAN:
 			case PRINT:
-			case LK:
 			case RK:
 			case ID:
 				enterOuterAlt(_localctx, 1);
@@ -1578,11 +1576,11 @@ public class summerDuckParser extends Parser {
 		}
 		public TerminalNode RP() { return getToken(summerDuckParser.RP, 0); }
 		public TerminalNode THEN() { return getToken(summerDuckParser.THEN, 0); }
-		public TerminalNode RK() { return getToken(summerDuckParser.RK, 0); }
+		public TerminalNode LK() { return getToken(summerDuckParser.LK, 0); }
 		public StatementsContext statements() {
 			return getRuleContext(StatementsContext.class,0);
 		}
-		public TerminalNode LK() { return getToken(summerDuckParser.LK, 0); }
+		public TerminalNode RK() { return getToken(summerDuckParser.RK, 0); }
 		public While_statementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1619,11 +1617,11 @@ public class summerDuckParser extends Parser {
 			setState(244);
 			match(THEN);
 			setState(245);
-			match(RK);
+			match(LK);
 			setState(246);
 			statements();Reglas.Mientras.R3();
 			setState(247);
-			match(LK);
+			match(RK);
 			}
 		}
 		catch (RecognitionException re) {
@@ -2916,8 +2914,8 @@ public class summerDuckParser extends Parser {
 		"\u00ec\u00ed\7\33\2\2\u00ed\u00ee\5\34\17\2\u00ee\u00ef\7\34\2\2\u00ef"+
 		"\u00f1\3\2\2\2\u00f0\u00ea\3\2\2\2\u00f0\u00eb\3\2\2\2\u00f1-\3\2\2\2"+
 		"\u00f2\u00f3\7\r\2\2\u00f3\u00f4\7\27\2\2\u00f4\u00f5\5\62\32\2\u00f5"+
-		"\u00f6\7\30\2\2\u00f6\u00f7\7\16\2\2\u00f7\u00f8\7\34\2\2\u00f8\u00f9"+
-		"\5\34\17\2\u00f9\u00fa\7\33\2\2\u00fa/\3\2\2\2\u00fb\u00fc\7\17\2\2\u00fc"+
+		"\u00f6\7\30\2\2\u00f6\u00f7\7\16\2\2\u00f7\u00f8\7\33\2\2\u00f8\u00f9"+
+		"\5\34\17\2\u00f9\u00fa\7\34\2\2\u00fa/\3\2\2\2\u00fb\u00fc\7\17\2\2\u00fc"+
 		"\u00fd\7\33\2\2\u00fd\u00fe\5\34\17\2\u00fe\u00ff\7\34\2\2\u00ff\u0100"+
 		"\7\20\2\2\u0100\u0101\7\27\2\2\u0101\u0102\5\62\32\2\u0102\u0103\7\30"+
 		"\2\2\u0103\u0104\7\36\2\2\u0104\61\3\2\2\2\u0105\u0106\5\66\34\2\u0106"+

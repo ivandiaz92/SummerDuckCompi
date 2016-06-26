@@ -62,12 +62,10 @@ public class Reglas {
     }
 
     public static class Condicional{
-        private static int expDir;
 
         public static void R1(){
             Compilador.cuadManager.registrarSalto();
-            // TODO obtener la direccion de la expresion
-            // expDir = blabla;
+            int expDir = Expresion.dirResult;
             Compilador.cuadManager.agregarCuadruplo(Instrucciones.GOTOF,expDir,-1,-1);
         }
 
@@ -77,8 +75,7 @@ public class Reglas {
 
         public static void R3() {
             Compilador.cuadManager.registrarSalto();
-            // TODO obtener la direccion de la expresion
-            // expDir = blabla;
+            int expDir = Expresion.dirResult;
             Compilador.cuadManager.agregarCuadruplo(Instrucciones.GOTOT,expDir,-1,-1);
         }
 
@@ -160,12 +157,12 @@ public class Reglas {
     }
 
     public static class HazMientras{
-        private static int dirExp;
         public static void R1(){
             Compilador.cuadManager.registrarSalto();
         }
 
         public static void R2(){
+            int dirExp = Expresion.dirResult;
             Compilador.cuadManager.agregarCuadruplo(Instrucciones.GOTOT,dirExp,-1,Compilador.cuadManager.obtenerUltimoSalto());
         }
     }

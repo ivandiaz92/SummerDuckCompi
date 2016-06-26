@@ -46,8 +46,8 @@ public class Compilador {
         //Clase que encapsula los cuatro enteros de un cuadruplo
 
         public static class Cuadruplo{
-            public int operando,operador2;
-            public Object operador1;
+            public int operador, operando2;
+            public Object operando1;
 
             public void setOutput(int output) {
                 this.output = output;
@@ -55,15 +55,15 @@ public class Compilador {
 
             public int output;
 
-            public Cuadruplo(int operando, Object operador1, int operador2, int output){
-                this.operando = operando;
-                this.operador1 = operador1;
-                this.operador2 = operador2;
+            public Cuadruplo(int operador, Object operando1, int operando2, int output){
+                this.operador = operador;
+                this.operando1 = operando1;
+                this.operando2 = operando2;
                 this.output = output;
             }
 
             public String toString(){
-                return operando + " " + operador1 + " " + operador2 + " " + output;
+                return operador + " " + operando1 + " " + operando2 + " " + output;
             }
         }
 
