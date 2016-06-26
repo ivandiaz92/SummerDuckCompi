@@ -70,21 +70,54 @@ public class ExpresionesAritmeticas {
                 int dir1 = auxStack.pop();
                 int tipo = Cubo.esValido(Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(dir1), Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(dir2),operator);
                 int dirR = Compilador.memManager.reservarNuevaTemporal(tipo);
+                int operando = -1;
 
                 switch (operator){
                     case Prioridades.MULTIPLICACION:
-                        Compilador.cuadManager.agregarCuadruplo(Instrucciones.MUL,dir1,dir2,dirR);
+                        operando = Instrucciones.MUL;
                         break;
                     case Prioridades.DIVICION:
-                        Compilador.cuadManager.agregarCuadruplo(Instrucciones.DIV,dir1,dir2,dirR);
+                        operando = Instrucciones.DIV;
                         break;
                     case Prioridades.SUMA:
-                        Compilador.cuadManager.agregarCuadruplo(Instrucciones.ADD,dir1,dir2,dirR);
+                        operando = Instrucciones.ADD;
                         break;
                     case Prioridades.RESTA:
-                        Compilador.cuadManager.agregarCuadruplo(Instrucciones.SUB,dir1,dir2,dirR);
+                        operando = Instrucciones.SUB;
+                        break;
+                    case Prioridades.DIFERENTE:
+                        operando = Instrucciones.DIF;
+                        break;
+                    case Prioridades.EQUIVALENTE:
+                        operando = Instrucciones.EQT;
+                        break;
+                    case Prioridades.MAYOR:
+                        operando = Instrucciones.GT;
+                        break;
+                    case Prioridades.MAYORIGUAL:
+                        operando = Instrucciones.GOE;
+                        break;
+                    case Prioridades.MENOR:
+                        operando = Instrucciones.LT;
+                        break;
+                    case Prioridades.MENORIGUAL:
+                        operando = Instrucciones.LOE;
+                        break;
+                    case Prioridades.MOD:
+                        operando = Instrucciones.MOD;
+                        break;
+                    case Prioridades.NOT:
+                        operando = Instrucciones.NOT;
+                        break;
+                    case Prioridades.OR:
+                        operando = Instrucciones.OR;
+                        break;
+                    case Prioridades.AND:
+                        operando = Instrucciones.AND;
                         break;
                 }
+
+                Compilador.cuadManager.agregarCuadruplo(operando,dir1,dir2,dirR);
 
                 auxStack.push(dirR);
 

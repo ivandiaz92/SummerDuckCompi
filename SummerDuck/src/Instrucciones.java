@@ -10,8 +10,8 @@ public class Instrucciones {
     public static final int EOF = 1008;
     public static final int AND = 1009;
     public static final int OR = 1010;
-    public static final int LT = 1011; //<
-    public static final int GT = 1012; //>
+    public static final int LT = 1011; // <
+    public static final int GT = 1012; // >
     public static final int EQT = 1013; //==
     public static final int DIF = 1014; //!=
     public static final int GOE = 1015; //>=
@@ -20,11 +20,16 @@ public class Instrucciones {
     public static final int SUB = 1018; // -
     public static final int MUL = 1019; // *
     public static final int DIV = 1020; // /
+    public static final int MOD = 1021; // %
+    public static final int NOT = 1022; // ¡
 
     public static String parse(int code){
         String msg = code + "";
 
         switch (code){
+            case NOT:
+                msg = "¡";
+                break;
             case GOTO :
                 msg = "GOTO";
                 break;
@@ -87,6 +92,9 @@ public class Instrucciones {
                 break;
             case DIV :
                 msg = "/";
+                break;
+            case MOD:
+                msg = "%";
                 break;
         }
 

@@ -139,15 +139,14 @@ public class Reglas {
     }
 
     public static class Mientras{
-        private static int dirExp;
 
         public static void R1(){
-            Compilador.cuadManager.registrarSalto();
+            Compilador.cuadManager.registrarSalto();// Salto al inicio de la expresion
         }
 
         public static void R2(){
+            int dirExp = Expresion.dirResult;
             Compilador.cuadManager.registrarSalto();
-            // TODO obtener valor de la direccion del ultimo exp
             Compilador.cuadManager.agregarCuadruplo(Instrucciones.GOTOF,dirExp,-1,-1);
         }
 

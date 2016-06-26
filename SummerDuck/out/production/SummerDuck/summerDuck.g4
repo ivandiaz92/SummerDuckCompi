@@ -46,7 +46,7 @@ OR: '|';
 
 CTE_BT: 'verdadero';
 CTE_BF: 'falso';
-CTE_I: [0-9];
+CTE_I: [0-9]+;
 CTE_F: [0-9]* '.' [0-9]+;
 CTE_C: '"'[a-zA-Z] '"';
 
