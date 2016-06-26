@@ -19,7 +19,12 @@ public class VM {
             while (line != null) {
                 //System.out.println(line);
                 String[] lineArray = line.split("\\s+");
-                cuadruplos.add(new Compilador.ManejadorDeCuadruplos.Cuadruplo(Integer.parseInt(lineArray[0]), Integer.parseInt(lineArray[1]), Integer.parseInt(lineArray[2]), Integer.parseInt(lineArray[3])));
+
+                try {
+                    cuadruplos.add(new Compilador.ManejadorDeCuadruplos.Cuadruplo(Integer.parseInt(lineArray[0]), Integer.parseInt(lineArray[1]), Integer.parseInt(lineArray[2]), Integer.parseInt(lineArray[3])));
+                } catch (Exception e){
+                    cuadruplos.add(new Compilador.ManejadorDeCuadruplos.Cuadruplo(Integer.parseInt(lineArray[0]), (lineArray[1]), Integer.parseInt(lineArray[2]), Integer.parseInt(lineArray[3])));
+                }
                 line = reader.readLine();
             }
 
@@ -51,6 +56,9 @@ public class VM {
                         println("GOTOT -> " + (i + 1));
                         break;
                     case Instrucciones.GOTOF:
+                        //if(!memVirtual.obtenerBoolean((int)cuad.operador1)){
+                            i = cuad.output - 1;
+                        //}
                         println("GOTOF -> " + (i + 1));
                         break;
 
@@ -128,6 +136,7 @@ public class VM {
                         break;
 
                     case Instrucciones.LT:
+                       // println("Less Than -> " + cuad.operador1 + "<" + cuad.operador2 + " = " + cuad.output);
                         tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operador1);
                         tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operador2);
 

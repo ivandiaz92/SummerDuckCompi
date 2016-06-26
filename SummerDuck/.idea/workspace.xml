@@ -2,20 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4ce9493-2ee3-43cd-bff1-18f20f6e7f00" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckBaseListener.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckBaseListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckLexer.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckLexer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/VM.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/VM.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cuadruplos.txt" afterPath="$PROJECT_DIR$/cuadruplos.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/summerDuckBaseListener.java" afterPath="$PROJECT_DIR$/gen/summerDuckBaseListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/summerDuckLexer.java" afterPath="$PROJECT_DIR$/gen/summerDuckLexer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/summerDuckParser.java" afterPath="$PROJECT_DIR$/gen/summerDuckParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/cuadruplos.txt" afterPath="$PROJECT_DIR$/out/production/SummerDuck/cuadruplos.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuck.g4" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuck.g4" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Compilador.java" afterPath="$PROJECT_DIR$/src/Compilador.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ExpresionesAritmeticas.java" afterPath="$PROJECT_DIR$/src/ExpresionesAritmeticas.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Instrucciones.java" afterPath="$PROJECT_DIR$/src/Instrucciones.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Reglas.java" afterPath="$PROJECT_DIR$/src/Reglas.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/VM.java" afterPath="$PROJECT_DIR$/src/VM.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/summerDuck.g4" afterPath="$PROJECT_DIR$/summerDuck.g4" />
     </list>
     <ignored path="SummerDuck.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,11 +28,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="VM.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/VM.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="282">
+              <caret line="60" column="26" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="summerDuckParser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gen/summerDuckParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="1613" column="0" selection-start-line="1613" selection-start-column="0" selection-end-line="1613" selection-end-column="0" />
+            <state relative-caret-position="97">
+              <caret line="1621" column="22" selection-start-line="1621" selection-start-column="22" selection-end-line="1621" selection-end-column="22" />
               <folding>
                 <element signature="e#4026#4027#0" expanded="true" />
                 <element signature="e#4050#4051#0" expanded="true" />
@@ -299,7 +302,7 @@
       <file leaf-file-name="Compilador.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Compilador.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
+            <state relative-caret-position="330">
               <caret line="25" column="45" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -311,71 +314,42 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="code.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/code.txt">
+      <file leaf-file-name="cuadruplos.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cuadruplos.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+            <state relative-caret-position="165">
+              <caret line="30" column="15" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Cubo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Cubo.java">
+      <file leaf-file-name="code.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/code.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding>
-                <element signature="e#242#243#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="45">
+              <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="summerDuck.g4" pinned="false" current-in-tab="false">
+      <file leaf-file-name="summerDuck.g4" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/summerDuck.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1800">
-              <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+            <state relative-caret-position="300">
+              <caret line="142" column="9" selection-start-line="142" selection-start-column="9" selection-end-line="142" selection-end-column="9" />
               <folding>
-                <marker date="1466898090000" expanded="true" signature="251:257" placeholder=":...;" />
+                <marker date="1466978966000" expanded="true" signature="251:257" placeholder=":...;" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Reglas.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Reglas.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="223" column="33" selection-start-line="223" selection-start-column="24" selection-end-line="223" selection-end-column="33" />
-              <folding>
-                <element signature="class#Asignacion#0;class#Reglas#0" expanded="false" />
-                <element signature="e#186#187#0" expanded="true" />
-                <element signature="e#244#245#0" expanded="true" />
-                <element signature="class#VarDec#0;class#Reglas#0" expanded="false" />
-                <element signature="class#Type#0;class#Reglas#0" expanded="false" />
-                <element signature="class#Condicional#0;class#Reglas#0" expanded="false" />
-                <element signature="class#Var1#0;class#Reglas#0" expanded="false" />
-                <element signature="e#2658#2659#0" expanded="true" />
-                <element signature="e#2704#2705#0" expanded="true" />
-                <element signature="e#2757#2758#0" expanded="true" />
-                <element signature="e#2839#2840#0" expanded="true" />
-                <element signature="class#Mientras#0;class#Reglas#0" expanded="false" />
-                <element signature="e#3945#3946#0" expanded="true" />
-                <element signature="e#4042#4043#0" expanded="true" />
-                <element signature="e#7727#7728#0" expanded="true" />
-                <element signature="e#7778#7779#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExpresionesAritmeticas.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ExpresionesAritmeticas.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ExpresionesAritmeticas.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
+            <state relative-caret-position="162">
               <caret line="116" column="30" selection-start-line="116" selection-start-column="30" selection-end-line="116" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -384,30 +358,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Errors.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Errors.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Prioridades.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Prioridades.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="24" column="99" selection-start-line="24" selection-start-column="99" selection-end-line="24" selection-end-column="99" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Instrucciones.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Instrucciones.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
+            <state relative-caret-position="465">
               <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
               <folding />
             </state>
@@ -443,17 +397,17 @@
         <option value="$PROJECT_DIR$/gen/summerDuckVisitor.java" />
         <option value="$PROJECT_DIR$/src/MemVirtual.java" />
         <option value="$PROJECT_DIR$/cuadruplos.txt" />
-        <option value="$PROJECT_DIR$/src/VM.java" />
         <option value="$PROJECT_DIR$/src/Errors.java" />
         <option value="$PROJECT_DIR$/src/Cubo.java" />
         <option value="$PROJECT_DIR$/src/Prioridades.java" />
         <option value="$PROJECT_DIR$/code.txt" />
-        <option value="$PROJECT_DIR$/summerDuck.g4" />
-        <option value="$PROJECT_DIR$/gen/summerDuckParser.java" />
         <option value="$PROJECT_DIR$/src/Reglas.java" />
         <option value="$PROJECT_DIR$/src/Compilador.java" />
         <option value="$PROJECT_DIR$/src/Instrucciones.java" />
         <option value="$PROJECT_DIR$/src/ExpresionesAritmeticas.java" />
+        <option value="$PROJECT_DIR$/src/VM.java" />
+        <option value="$PROJECT_DIR$/gen/summerDuckParser.java" />
+        <option value="$PROJECT_DIR$/summerDuck.g4" />
       </list>
     </option>
   </component>
@@ -871,29 +825,29 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32931036" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Tool Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32931036" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32931036" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32931036" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29483038" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17285945" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="ANTLR Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32931036" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="ANTLR Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32931036" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24975985" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -922,12 +876,6 @@
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ExpresionesAritmeticas.java</url>
-          <line>43</line>
-          <properties />
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gen/summerDuckParser.java</url>
           <line>1032</line>
           <properties />
@@ -935,25 +883,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gen/summerDuckParser.java</url>
-          <line>1613</line>
+          <line>1619</line>
           <properties />
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ExpresionesAritmeticas.java</url>
-          <line>61</line>
-          <properties />
-          <option name="timeStamp" value="30" />
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="31" />
+      <option name="time" value="36" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="this.getCurrentToken().getText()" language="JAVA" custom="" />
-        <watch expression="this.getCurrentToken().getText()" language="JAVA" custom="" />
-        <watch expression="this.getVocabulary().getDisplayName(this.getCurrentToken().getType())" language="JAVA" custom="" />
-        <watch expression="resultado" language="JAVA" custom="" />
+        <watch expression="this.getVocabulary().getSymbolicName(this.getCurrentToken().getType())" language="JAVA" custom="" />
       </configuration>
     </watches-manager>
   </component>
@@ -962,14 +902,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/code.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TablaVariables.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="795">
@@ -1598,16 +1530,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/VM.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="341" column="117" selection-start-line="341" selection-start-column="117" selection-end-line="341" selection-end-column="117" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TablaVariables.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1620,14 +1542,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="151">
           <caret line="24" column="99" selection-start-line="24" selection-start-column="99" selection-end-line="24" selection-end-column="99" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cuadruplos.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -1645,47 +1559,6 @@
         <state relative-caret-position="105">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cubo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="e#242#243#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/summerDuck.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1800">
-          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
-          <folding>
-            <marker date="1466898090000" expanded="true" signature="251:257" placeholder=":...;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Compilador.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="25" column="45" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3649#3650#0" expanded="true" />
-            <element signature="e#3706#3707#0" expanded="true" />
-            <element signature="docComment;method#reservarEspacioEnMemoria#0;class#ManejadorDeMemoria#0;class#Compilador#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1714,10 +1587,77 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_11.jdk/Contents/Home/src.zip!/java/lang/NumberFormatException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cubo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="e#242#243#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Instrucciones.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ExpresionesAritmeticas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="116" column="30" selection-start-line="116" selection-start-column="30" selection-end-line="116" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/VM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="60" column="26" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cuadruplos.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="30" column="15" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Compilador.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="25" column="45" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3649#3650#0" expanded="true" />
+            <element signature="e#3706#3707#0" expanded="true" />
+            <element signature="docComment;method#reservarEspacioEnMemoria#0;class#ManejadorDeMemoria#0;class#Compilador#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/gen/summerDuckParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="1613" column="0" selection-start-line="1613" selection-start-column="0" selection-end-line="1613" selection-end-column="0" />
+        <state relative-caret-position="97">
+          <caret line="1621" column="22" selection-start-line="1621" selection-start-column="22" selection-end-line="1621" selection-end-column="22" />
           <folding>
             <element signature="e#4026#4027#0" expanded="true" />
             <element signature="e#4050#4051#0" expanded="true" />
@@ -1971,20 +1911,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Instrucciones.java">
+    <entry file="file://$PROJECT_DIR$/code.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+        <state relative-caret-position="45">
+          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ExpresionesAritmeticas.java">
+    <entry file="file://$PROJECT_DIR$/summerDuck.g4">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="116" column="30" selection-start-line="116" selection-start-column="30" selection-end-line="116" selection-end-column="30" />
+        <state relative-caret-position="300">
+          <caret line="142" column="9" selection-start-line="142" selection-start-column="9" selection-end-line="142" selection-end-column="9" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1466978966000" expanded="true" signature="251:257" placeholder=":...;" />
           </folding>
         </state>
       </provider>

@@ -139,7 +139,7 @@ ifelseaux:
 		| ELSE LK statements RK
 		;
 
-while_statement: WHILE LP exp RP THEN RK statements LK
+while_statement: WHILE LP exp RP THEN LK statements RK
 		;
 
 dowhile: DO LK statements RK UNTIL LP exp RP PC
