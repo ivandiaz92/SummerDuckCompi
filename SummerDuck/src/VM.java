@@ -18,11 +18,24 @@ public class VM {
                 //System.out.println(line);
                 String[] lineArray = line.split("\\s+");
 
-                try {
-                    cuadruplos.add(new Compilador.ManejadorDeCuadruplos.Cuadruplo(Integer.parseInt(lineArray[0]), Integer.parseInt(lineArray[1]), Integer.parseInt(lineArray[2]), Integer.parseInt(lineArray[3])));
-                } catch (Exception e){
-                    cuadruplos.add(new Compilador.ManejadorDeCuadruplos.Cuadruplo(Integer.parseInt(lineArray[0]), (lineArray[1]), Integer.parseInt(lineArray[2]), Integer.parseInt(lineArray[3])));
+                if(lineArray.length > 4) {
+                    String acum = "";
+                    int limit = lineArray.length - 3;
+
+                    for(int i = 1; i <= limit; i++) {
+                        acum += lineArray[i] + " ";
+                    }
+                    acum = acum.substring(0,acum.length()-1);
+                    cuadruplos.add(new Compilador.ManejadorDeCuadruplos.Cuadruplo(Integer.parseInt(lineArray[0]),(Object)acum,Integer.parseInt(lineArray[lineArray.length-2]),Integer.parseInt(lineArray[lineArray.length-1])));
+                }else{
+                    try {
+                        cuadruplos.add(new Compilador.ManejadorDeCuadruplos.Cuadruplo(Integer.parseInt(lineArray[0]), Integer.parseInt(lineArray[1]), Integer.parseInt(lineArray[2]), Integer.parseInt(lineArray[3])));
+                    } catch (Exception e){
+                        cuadruplos.add(new Compilador.ManejadorDeCuadruplos.Cuadruplo(Integer.parseInt(lineArray[0]), (lineArray[1]), Integer.parseInt(lineArray[2]), Integer.parseInt(lineArray[3])));
+                    }
                 }
+
+
                 line = reader.readLine();
             }
 
