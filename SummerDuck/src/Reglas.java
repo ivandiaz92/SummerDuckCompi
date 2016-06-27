@@ -62,10 +62,11 @@ public class Reglas {
     }
 
     public static class Condicional{
-
+        private static int expDir = Errors.VARIABLE_NO_DEFINIDA;
         public static void R1(){
+            expDir = Expresion.dirResult;
+
             Compilador.cuadManager.registrarSalto();
-            int expDir = Expresion.dirResult;
             Compilador.cuadManager.agregarCuadruplo(Instrucciones.GOTOF,expDir,-1,-1);
         }
 
@@ -75,7 +76,6 @@ public class Reglas {
 
         public static void R3() {
             Compilador.cuadManager.registrarSalto();
-            int expDir = Expresion.dirResult;
             Compilador.cuadManager.agregarCuadruplo(Instrucciones.GOTOT,expDir,-1,-1);
         }
 

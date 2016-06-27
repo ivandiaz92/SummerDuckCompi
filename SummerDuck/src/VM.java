@@ -383,6 +383,40 @@ public class VM {
                         running = false;
                         break;
 
+                    case Instrucciones.WRITE:
+                        println("Imprime: " + cuad.output);
+                        tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.output);
+                        String res = "";
+                        if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
+                            res = memVirtual.obtenerInt(cuad.output) + "";
+                        }else if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT){
+                            res = memVirtual.obtenerDouble(cuad.output) + "";
+                        }else if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_STRING){
+                            res = memVirtual.obtenerString(cuad.output);
+                        }else if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_BOOL){
+                            res = memVirtual.obtenerBoolean(cuad.output) ? "verdadero" : "falso";
+                        }
+                        System.out.println(res);
+                        break;
+
+                    case Instrucciones.SCAN:
+                        println("Leer: " + cuad.output);
+
+                        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                        String s = br.readLine();
+                        br.close();
+
+                        tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.output);
+                        if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
+                            memVirtual.asignarInt(cuad.output,Integer.parseInt(s));
+                        }else if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_FLOAT){
+                            memVirtual.asignarDouble(cuad.output,Double.parseDouble(s));
+                        }else if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_STRING){
+                            memVirtual.asignarString(cuad.output,s);
+                        }else if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_BOOL){
+                            memVirtual.asignarBoolean(cuad.output,Boolean.parseBoolean(s));
+                        }
+
                     default:
                         System.out.println(cuad.operador + " " + cuad.operando1 + " " + cuad.operando2 + " " + cuad.output);
                         break;
