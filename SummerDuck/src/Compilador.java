@@ -9,6 +9,7 @@ public class Compilador {
     public static ManejadorDeCuadruplos cuadManager = new ManejadorDeCuadruplos();
     public static ManejadorDeVariables varManager = new ManejadorDeVariables();
     public static ManejadorDeMemoria memManager = new ManejadorDeMemoria();
+    public static DirProcs procManager = new DirProcs();
 
     public static void main(String[] args){
         try{
@@ -78,11 +79,11 @@ public class Compilador {
         }
 
         //Agregar un cuadruplo a la lista de cuadruplos
-
+/*
         public void agregarCuadruplo(int operando, int operador1, int operador2, int output){
             System.out.println(cuadruplos.size() + ") " + Instrucciones.parse(operando) + " " + operador1 + " " + operador2 + " " + output);
             cuadruplos.add(new Cuadruplo(operando,operador1,operador2,output));
-        }
+        }*/
         public void agregarCuadruplo(int operando, Object operador1, int operador2, int output){
             System.out.println(cuadruplos.size() + ") "+ Instrucciones.parse(operando) + " " + operador1 + " " + operador2 + " " + output);
             cuadruplos.add(new Cuadruplo(operando,operador1,operador2,output));
@@ -101,6 +102,10 @@ public class Compilador {
 
         public void rellenarSalto(){
             cuadruplos.get(obtenerUltimoSalto()).setOutput(cuadruplos.size());
+        }
+
+        public int obtenerNumeroDeCuadruploSiguiente(){
+            return cuadruplos.size();
         }
 
     }

@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.Stack;
 
 public class Reglas {
@@ -33,6 +34,14 @@ public class Reglas {
 
         public static void R3(){
             // TODO agregar dimenciones y asi
+        }
+
+        public static int getUltimaDireccion(){
+            return direccion;
+        }
+
+        public static String getUltimoID() {
+            return id;
         }
     }
 
@@ -181,13 +190,60 @@ public class Reglas {
 
 
     public static class FuncDecl{
+        private static Procedimiento proc;
+        private static int tipo;
+        private static LinkedList<Integer> paramDirs = new LinkedList<>();
 
-        public static void R1(){
+        public static void iniciaFuncionDecl(){
             Compilador.varManager.entrandoEnContextoLocal();
         }
 
-        public static void R2(){
+        public static void tipo(){
+            tipo = Type.getTipo();
+        }
+
+        public static void id(String id) {
+            proc = new Procedimiento(tipo,id,Compilador.cuadManager.obtenerNumeroDeCuadruploSiguiente());
+            Compilador.cuadManager.agregarCuadruplo(Instrucciones.ENTRALOCAL,-1,-1,-1);
+        }
+
+        public static void agregaParametro(){
+            paramDirs.push(VarDec.getUltimaDireccion());
+            proc.addParam(Type.getTipo(),VarDec.getUltimoID(),VarDec.getUltimaDireccion());
+        }
+
+        public static void asignaParametros(){
+            while (!paramDirs.isEmpty()){
+                Compilador.cuadManager.agregarCuadruplo(Instrucciones.GETREKT,-1,-1,paramDirs.getLast());
+                paramDirs.removeLast();
+            }
+        }
+
+        public static void regresa(){
+            int dirExp = Expresion.dirResult;
+            Compilador.cuadManager.agregarCuadruplo(Instrucciones.RETURN,-1,-1,dirExp);
+        }
+
+        public static void terminaFuncionDecl(){
+            Compilador.procManager.registrarProc(proc);
             Compilador.varManager.saliendoDeContextoLocal();
+            Compilador.cuadManager.agregarCuadruplo(Instrucciones.SALLOCAL,-1,-1,-1);
+        }
+    }
+
+    public static class FuncCall {
+
+    }
+
+    public static class MAIN {
+        public static void IniciaMain(){
+            Compilador.varManager.entrandoEnContextoLocal();
+            Compilador.cuadManager.agregarCuadruplo(Instrucciones.ENTRALOCAL,-1,-1,-1);
+        }
+
+        public static void TerminaMain(){
+            Compilador.varManager.saliendoDeContextoLocal();
+            Compilador.cuadManager.agregarCuadruplo(Instrucciones.SALLOCAL,-1,-1,-1);
         }
     }
 

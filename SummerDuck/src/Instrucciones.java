@@ -23,10 +23,21 @@ public class Instrucciones {
     public static final int MOD = 1021; // %
     public static final int NOT = 1022; // ¡
 
+    public static final int ENTRALOCAL = 1023; // Agrega una dimension de Memoria Local
+    public static final int SALLOCAL = 1024; // Elimina una dimension de Memoria Local
+    public static final int RETURN = 1025; // Regresa la variable definida
+    public static final int GETREKT = 1026; // Asigna los parametros con los valores que llegaron de la memoria
+
     public static String parse(int code){
         String msg = code + "";
 
         switch (code){
+            case GETREKT:
+                msg = "ASIGN PARAM";
+                break;
+            case RETURN:
+                msg = "RETURN";
+                break;
             case NOT:
                 msg = "¡";
                 break;
@@ -95,6 +106,12 @@ public class Instrucciones {
                 break;
             case MOD:
                 msg = "%";
+                break;
+            case SALLOCAL:
+                msg = "Out LC";
+                break;
+            case ENTRALOCAL:
+                msg = "In LC";
                 break;
         }
 

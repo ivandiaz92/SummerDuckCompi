@@ -1,10 +1,20 @@
-programa wibi;
+programa prueba;
 
 entero: x;
 char: msg, msg2;
 
 x = 1;
 msg = "Ivan Diaz Was Here";
+
+modulo real fibo ( real: x, entero: y, entero: z) ; {
+    escribe ("Ivan beach");
+    regresa ("bee ach");
+}
+
+modulo real fibo2 ( real: x) ; {
+    escribe ("Ivan beach");
+    regresa ("bee ach");
+}
 
 principal(){
 	real: y;
@@ -37,6 +47,6 @@ principal(){
     si ( 2 * 3 < 2 + 1){
         escribe(msg);
     }sino {
-        escribe("Papa",msg);
+        escribe("hello");
     }
 }

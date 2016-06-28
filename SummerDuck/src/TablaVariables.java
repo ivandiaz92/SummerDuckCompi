@@ -34,7 +34,7 @@ public class TablaVariables {
         return tabla.get(nombre);
     }
 
-    public class Var{
+    public static class Var{
         public int tipo;
         public String nombre;
         public int direccion;

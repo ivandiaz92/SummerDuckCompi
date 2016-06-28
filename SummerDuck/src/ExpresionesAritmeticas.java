@@ -2,9 +2,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
-/**
- * Created by ivandiaz on 6/25/16.
- */
 public class ExpresionesAritmeticas {
     private Stack<Integer> vectorPolaco;
     private LinkedList<Integer> resultado;

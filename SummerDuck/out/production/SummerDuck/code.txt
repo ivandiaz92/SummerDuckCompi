@@ -1,10 +1,20 @@
-programa wibi;
+programa prueba;
 
 entero: x;
 char: msg, msg2;
 
 x = 1;
 msg = "Ivan Diaz Was Here";
+
+modulo real fibo ( real: x, entero: y, entero: z) ; {
+    escribe ("Ivan beach");
+    regresa ("bee ach");
+}
+
+modulo real fibo2 ( real: x) ; {
+    escribe ("Ivan beach");
+    regresa ("bee ach");
+}
 
 principal(){
 	real: y;
@@ -34,7 +44,9 @@ principal(){
     escribe("Ingrese mensaje personalizado");
     lee(msg2);
 
-    si ( verdadero ){
-        escribe(msg2);
+    si ( 2 * 3 < 2 + 1){
+        escribe(msg);
+    }sino {
+        escribe("hello");
     }
 }

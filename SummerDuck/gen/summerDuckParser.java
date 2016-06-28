@@ -220,13 +220,13 @@ public class summerDuckParser extends Parser {
 			setState(92);
 			match(RP);
 			setState(93);
-			match(LK);Reglas.FuncDecl.R1();
+			match(LK);Reglas.MAIN.IniciaMain();
 			setState(94);
 			vardec();
 			setState(95);
 			statements();
 			setState(96);
-			match(RK);Reglas.FuncDecl.R2();
+			match(RK);Reglas.MAIN.TerminaMain();
 			}
 		}
 		catch (RecognitionException re) {
@@ -639,6 +639,7 @@ public class summerDuckParser extends Parser {
 		try {
 			setState(134);
 			switch (_input.LA(1)) {
+			case RP:
 			case PC:
 			case COMA:
 				enterOuterAlt(_localctx, 1);
@@ -743,15 +744,19 @@ public class summerDuckParser extends Parser {
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(137);
+                    Reglas.FuncDecl.iniciaFuncionDecl();
 				match(FUNCTION);
 				setState(138);
 				type();
+                    Reglas.FuncDecl.tipo();
 				setState(139);
+                    Reglas.FuncDecl.id(this.getCurrentToken().getText());
 				match(ID);
 				setState(140);
 				match(LP);
 				setState(141);
 				params();
+                    Reglas.FuncDecl.asignaParametros();
 				setState(142);
 				match(RP);
 				setState(143);
@@ -768,12 +773,13 @@ public class summerDuckParser extends Parser {
 				match(LP);
 				setState(149);
 				exp();
+                    Reglas.FuncDecl.regresa();
 				setState(150);
 				match(RP);
 				setState(151);
 				match(PC);
 				setState(152);
-				match(RK);
+				match(RK);Reglas.FuncDecl.terminaFuncionDecl();
 				setState(153);
 				fundef();
 				}
@@ -857,8 +863,8 @@ public class summerDuckParser extends Parser {
 			return getRuleContext(TypeContext.class,0);
 		}
 		public TerminalNode DP() { return getToken(summerDuckParser.DP, 0); }
-		public VarContext var() {
-			return getRuleContext(VarContext.class,0);
+		public Var2Context var2() {
+			return getRuleContext(Var2Context.class,0);
 		}
 		public Paramsaux2Context paramsaux2() {
 			return getRuleContext(Paramsaux2Context.class,0);
@@ -890,10 +896,11 @@ public class summerDuckParser extends Parser {
 			{
 			setState(161);
 			type();
+                Reglas.VarDec.R1();
 			setState(162);
 			match(DP);
 			setState(163);
-			var();
+			var2();Reglas.FuncDecl.agregaParametro();
 			setState(164);
 			paramsaux2();
 			}
@@ -2888,8 +2895,8 @@ public class summerDuckParser extends Parser {
 		"\5\24\13\2\u009c\u009e\3\2\2\2\u009d\u008a\3\2\2\2\u009d\u008b\3\2\2\2"+
 		"\u009e\25\3\2\2\2\u009f\u00a2\3\2\2\2\u00a0\u00a2\5\30\r\2\u00a1\u009f"+
 		"\3\2\2\2\u00a1\u00a0\3\2\2\2\u00a2\27\3\2\2\2\u00a3\u00a4\5\n\6\2\u00a4"+
-		"\u00a5\7\35\2\2\u00a5\u00a6\5\f\7\2\u00a6\u00a7\5\32\16\2\u00a7\31\3\2"+
-		"\2\2\u00a8\u00ac\3\2\2\2\u00a9\u00aa\7\37\2\2\u00aa\u00ac\5\30\r\2\u00ab"+
+		"\u00a5\7\35\2\2\u00a5\u00a6\5\20\t\2\u00a6\u00a7\5\32\16\2\u00a7\31\3"+
+		"\2\2\2\u00a8\u00ac\3\2\2\2\u00a9\u00aa\7\37\2\2\u00aa\u00ac\5\30\r\2\u00ab"+
 		"\u00a8\3\2\2\2\u00ab\u00a9\3\2\2\2\u00ac\33\3\2\2\2\u00ad\u00c1\3\2\2"+
 		"\2\u00ae\u00af\5 \21\2\u00af\u00b0\5\34\17\2\u00b0\u00c1\3\2\2\2\u00b1"+
 		"\u00b2\5\"\22\2\u00b2\u00b3\5\34\17\2\u00b3\u00c1\3\2\2\2\u00b4\u00b5"+

@@ -1,0 +1,22 @@
+programa fibonacci;
+
+principal(){
+
+    entero: n, x, y, z, i;
+
+    y = 1;
+    z = 1;
+
+    escribe("Escribe n");
+    lee(n);
+
+    mientras(i < n) haz{
+        x = y;
+        y = z;
+        z = x + y;
+
+        i = i + 1;
+    }
+
+    escribe(x);
+}

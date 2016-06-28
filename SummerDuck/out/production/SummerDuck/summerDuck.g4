@@ -96,7 +96,7 @@ params:
 	| paramsaux
 	;
 
-paramsaux: type DP var paramsaux2
+paramsaux: type DP var2 paramsaux2
 		;
 
 paramsaux2:

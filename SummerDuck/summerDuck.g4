@@ -96,7 +96,7 @@ params:
 	| paramsaux
 	;
 
-paramsaux: type DP var paramsaux2
+paramsaux: type DP var2 paramsaux2
 		;
 
 paramsaux2:
@@ -212,9 +212,13 @@ factor:
 	| CTE_BT
 	;
 
-functioncall: ID LP exp functioncallaux RP
+functioncall: ID LP functioncallaux RP
 		;
 
 functioncallaux:
-		| COMA exp functioncallaux
+    | exp functioncallaux2
+    ;
+
+functioncallaux2:
+		| COMA exp functioncallaux2
 		;

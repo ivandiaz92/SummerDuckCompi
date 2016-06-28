@@ -1,3 +1,6 @@
+import javafx.scene.control.Tab;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -5,26 +8,15 @@ import java.util.HashMap;
  */
 public class DirProcs {
 
-    public class Procedimiento{
-        public int tipoRetorno;
-        public String nombre;
-        public int direccion;
-
-        public Procedimiento(int tipoRetorno, String nombre, int direccion){
-            this.tipoRetorno = tipoRetorno;
-            this.nombre = nombre;
-            this.direccion = direccion;
-        }
-    }
-
     HashMap<String, Procedimiento> tabla = new HashMap<String, Procedimiento>();
 
-    public int registrarProc(int tipoRetorno, String nombre, int direccion){
-        if (tabla.containsKey(nombre)){
+    // registra un procedimiento en la tabla de directorios
+    public int registrarProc(Procedimiento proc){
+        if (tabla.containsKey(proc.getName())){
             return Errors.PROCEDIMIENTO_REDEFINIDO;
         }
 
-        tabla.put(nombre, new Procedimiento(tipoRetorno, nombre, direccion));
+        tabla.put(proc.getName(), proc);
         return Errors.SUCCESS;
     }
 }

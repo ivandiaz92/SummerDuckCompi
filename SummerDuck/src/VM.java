@@ -56,42 +56,52 @@ public class VM {
                 Compilador.ManejadorDeCuadruplos.Cuadruplo cuad = cuadruplos.get(i);
                 //System.out.println(cuad.operador + " " + cuad.operando1 + " " + cuad.operando2 + " " + cuad.output);
 
-                print(i + ") ");
+                //print(i + ") ");
 
                 switch (cuad.operador){
+                    case Instrucciones.ENTRALOCAL:
+                        memVirtual.entrandoAContextoLocal();
+                       // println("ENTRALOCAL");
+                        break;
+
+                    case Instrucciones.SALLOCAL:
+                        memVirtual.saliendoDeContextoLocal();
+                        //println("SALLOCAL");
+                        break;
+
                     case Instrucciones.GOTO:
                         i = cuad.output - 1;
-                        println("GOTO -> " + (i + 1));
+                        //println("GOTO -> " + (i + 1));
                         break;
                     case Instrucciones.GOTOT:
                         if(memVirtual.obtenerBoolean((int)cuad.operando1)){
                             i = cuad.output - 1;
-                            println("GOTOT[true] -> " + (i + 1));
+                            //println("GOTOT[true] -> " + (i + 1));
                             break;
                         }
-                        println("GOTOT[false] -> " + cuad.output);
+                        //println("GOTOT[false] -> " + cuad.output);
                         break;
                     case Instrucciones.GOTOF:
                         if(!memVirtual.obtenerBoolean((int)cuad.operando1)){
                             i = cuad.output - 1;
-                            println("GOTOF[false] -> " + (i + 1));
+                            //println("GOTOF[false] -> " + (i + 1));
                             break;
                         }
-                        println("GOTOF[true] -> " + cuad.output);
+                       // println("GOTOF[true] -> " + cuad.output);
                         break;
 
                     case Instrucciones.VARDECL:
-                        println("Declaracion -> " + cuad.output);
+                        //println("Declaracion -> " + cuad.output);
                         memVirtual.declararVariable(cuad.output);
                         break;
 
                     case Instrucciones.CONSTANT:
-                        println("Constante [" + cuad.operando1 + "] -> " + cuad.output);
+                        //println("Constante [" + cuad.operando1 + "] -> " + cuad.output);
                         memVirtual.declararConstante(cuad.output,cuad.operando1.toString());
                         break;
 
                     case Instrucciones.ASIGNATION:
-                        println("Asignacion -> " + cuad.operando1 + " = " + cuad.output);
+                       // println("Asignacion -> " + cuad.operando1 + " = " + cuad.output);
                         tipoIn = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operando1);
                         tipoOut = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.output);
 
@@ -144,17 +154,17 @@ public class VM {
                         break;
 
                     case Instrucciones.AND:
-                        println("AND -> " + cuad.operando1 + "&&" + cuad.operando2 + " = " + cuad.output);
+                        //println("AND -> " + cuad.operando1 + "&&" + cuad.operando2 + " = " + cuad.output);
                         memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerBoolean((int)cuad.operando1) && memVirtual.obtenerBoolean(cuad.operando2));
                         break;
 
                     case Instrucciones.OR:
-                        println("OR -> " + cuad.operando1 + "||" + cuad.operando2 + " = " + cuad.output);
+                        //println("OR -> " + cuad.operando1 + "||" + cuad.operando2 + " = " + cuad.output);
                         memVirtual.asignarBoolean(cuad.output, memVirtual.obtenerBoolean((int)cuad.operando1) || memVirtual.obtenerBoolean(cuad.operando2));
                         break;
 
                     case Instrucciones.LT:
-                        println(cuad.operando1 + " < " + cuad.operando2 + " = " + cuad.output);
+                        //println(cuad.operando1 + " < " + cuad.operando2 + " = " + cuad.output);
                         tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operando1);
                         tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operando2);
 
@@ -176,7 +186,7 @@ public class VM {
                         break;
 
                     case Instrucciones.GT:
-                        println(cuad.operando1 + " > " + cuad.operando2 + " = " + cuad.output);
+                        //println(cuad.operando1 + " > " + cuad.operando2 + " = " + cuad.output);
                         tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operando1);
                         tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operando2);
 
@@ -198,7 +208,7 @@ public class VM {
                         break;
 
                     case Instrucciones.EQT:
-                        println(cuad.operando1 + " == " + cuad.operando2 + " = " + cuad.output);
+                        //println(cuad.operando1 + " == " + cuad.operando2 + " = " + cuad.output);
                         tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operando1);
                         tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operando2);
 
@@ -220,7 +230,7 @@ public class VM {
                         break;
 
                     case Instrucciones.DIF:
-                        println(cuad.operando1 + " != " + cuad.operando2 + " = " + cuad.output);
+                       // println(cuad.operando1 + " != " + cuad.operando2 + " = " + cuad.output);
                         tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operando1);
                         tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operando2);
 
@@ -284,7 +294,7 @@ public class VM {
                         break;
 
                     case Instrucciones.ADD:
-                        println(cuad.operando1 + " + " + cuad.operando2 + " = " + cuad.output);
+                        //println(cuad.operando1 + " + " + cuad.operando2 + " = " + cuad.output);
                         tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operando1);
                         tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operando2);
 
@@ -310,7 +320,7 @@ public class VM {
                         break;
 
                     case Instrucciones.SUB:
-                        println(cuad.operando1 + " - " + cuad.operando2 + " = " + cuad.output);
+                        //println(cuad.operando1 + " - " + cuad.operando2 + " = " + cuad.output);
                         tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operando1);
                         tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operando2);
 
@@ -333,7 +343,7 @@ public class VM {
                         break;
 
                     case Instrucciones.MUL:
-                        println(cuad.operando1 + " * " + cuad.operando2 + " = " + cuad.output);
+                       // println(cuad.operando1 + " * " + cuad.operando2 + " = " + cuad.output);
                         tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operando1);
                         tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operando2);
 
@@ -356,7 +366,7 @@ public class VM {
                         break;
 
                     case Instrucciones.DIV:
-                        println(cuad.operando1 + " / " + cuad.operando2 + " = " + cuad.output);
+                       // println(cuad.operando1 + " / " + cuad.operando2 + " = " + cuad.output);
                         tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo((int)cuad.operando1);
                         tipo2 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.operando2);
 
@@ -379,12 +389,12 @@ public class VM {
                         break;
 
                     case Instrucciones.EOF:
-                        println("Fin del programa. Exit(24)");
+                        println("Fin del programa. Exit()");
                         running = false;
                         break;
 
                     case Instrucciones.WRITE:
-                        println("Imprime: " + cuad.output);
+                        //println("Imprime: " + cuad.output);
                         tipo1 = Compilador.ManejadorDeMemoria.Memoria.obtenerTipo(cuad.output);
                         String res = "";
                         if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_INT){
@@ -400,7 +410,7 @@ public class VM {
                         break;
 
                     case Instrucciones.SCAN:
-                        println("Leer: " + cuad.output);
+                        //println("Leer: " + cuad.output);
 
                         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
                         String s = br.readLine();
@@ -416,9 +426,8 @@ public class VM {
                         }else if (tipo1 == Compilador.ManejadorDeMemoria.Memoria.VAR_BOOL){
                             memVirtual.asignarBoolean(cuad.output,Boolean.parseBoolean(s));
                         }
-
                     default:
-                        System.out.println(cuad.operador + " " + cuad.operando1 + " " + cuad.operando2 + " " + cuad.output);
+                        //System.out.println(cuad.operador + " " + cuad.operando1 + " " + cuad.operando2 + " " + cuad.output);
                         break;
                 }
 

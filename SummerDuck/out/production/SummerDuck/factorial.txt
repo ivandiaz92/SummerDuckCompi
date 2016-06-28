@@ -1,0 +1,19 @@
+programa factorial;
+
+principal(){
+    entero: n, i, resultado;
+    resultado = 1;
+    i = 1;
+
+    escribe("Dame n");
+    lee(n);
+
+    mientras (i <= n) haz {
+        resultado = resultado * i;
+
+        i = i + 1;
+    }
+
+    escribe(resultado);
+
+}
