@@ -502,6 +502,18 @@ public class summerDuckBaseListener implements summerDuckListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitFunctioncallaux(summerDuckParser.FunctioncallauxContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFunctioncallaux2(summerDuckParser.Functioncallaux2Context ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFunctioncallaux2(summerDuckParser.Functioncallaux2Context ctx) { }
 
 	/**
 	 * {@inheritDoc}

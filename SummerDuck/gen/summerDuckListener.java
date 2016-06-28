@@ -416,4 +416,14 @@ public interface summerDuckListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitFunctioncallaux(summerDuckParser.FunctioncallauxContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link summerDuckParser#functioncallaux2}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctioncallaux2(summerDuckParser.Functioncallaux2Context ctx);
+	/**
+	 * Exit a parse tree produced by {@link summerDuckParser#functioncallaux2}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctioncallaux2(summerDuckParser.Functioncallaux2Context ctx);
 }

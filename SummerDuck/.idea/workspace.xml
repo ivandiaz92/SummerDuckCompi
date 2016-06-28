@@ -2,86 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4ce9493-2ee3-43cd-bff1-18f20f6e7f00" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/factorial.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fibonacci.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sort.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Procedimiento.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SummerDuck/DirProcs$Procedimiento.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/Compilador$ManejadorDeCuadruplos$Cuadruplo.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/Compilador$ManejadorDeCuadruplos$Cuadruplo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/Compilador$ManejadorDeCuadruplos.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/Compilador$ManejadorDeCuadruplos.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/Compilador$ManejadorDeMemoria$Memoria.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/Compilador$ManejadorDeMemoria$Memoria.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/Compilador$ManejadorDeMemoria.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/Compilador$ManejadorDeMemoria.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/Compilador$ManejadorDeVariables.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/Compilador$ManejadorDeVariables.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/Compilador.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/Compilador.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/DirProcs.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/DirProcs.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/Instrucciones.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/Instrucciones.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/MemVirtual.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/MemVirtual.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/Reglas$Condicional.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/Reglas$Condicional.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/Reglas$Constante.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/Reglas$Constante.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/Reglas$Escribir.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/Reglas$Escribir.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/Reglas$Expresion.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/Reglas$Expresion.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/Reglas$FuncDecl.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/Reglas$FuncDecl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/Reglas$HazMientras.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/Reglas$HazMientras.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/Reglas$Leer.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/Reglas$Leer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/Reglas$Mientras.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/Reglas$Mientras.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/Reglas$Programa.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/Reglas$Programa.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/Reglas$Type.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/Reglas$Type.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/Reglas$Var1.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/Reglas$Var1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/Reglas$VarDec.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/Reglas$VarDec.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/Reglas.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/Reglas.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/TablaVariables$Var$Dimension.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/TablaVariables$Var$Dimension.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/TablaVariables$Var.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/TablaVariables$Var.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/TablaVariables.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/TablaVariables.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/VM.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/VM.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$AsignationsContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$AsignationsContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$DowhileContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$DowhileContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$EscribirContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$EscribirContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ExContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ExContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ExauxContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ExauxContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ExlogContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ExlogContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ExlogauxContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ExlogauxContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ExmodContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ExmodContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ExmodauxContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ExmodauxContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ExnotContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ExnotContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ExnotauxContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ExnotauxContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ExorContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ExorContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ExorauxContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ExorauxContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ExpContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ExpContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ExpauxContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ExpauxContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$FactorContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$FactorContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$FunctioncallContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$FunctioncallContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$FunctioncallauxContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$FunctioncallauxContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$FundefContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$FundefContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$IfelseContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$IfelseContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$IfelseauxContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$IfelseauxContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$LeerContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$LeerContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$Leeraux2Context.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$Leeraux2Context.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$LeerauxContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$LeerauxContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ParamsContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ParamsContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$Paramsaux2Context.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$Paramsaux2Context.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ParamsauxContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$ParamsauxContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$StatementsContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$StatementsContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$TerminoContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$TerminoContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$TerminoauxContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$TerminoauxContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$VarAsignContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$VarAsignContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$While_statementContext.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser$While_statementContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser.class" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuckParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/code.txt" afterPath="$PROJECT_DIR$/code.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cuadruplos.txt" afterPath="$PROJECT_DIR$/cuadruplos.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/summerDuckBaseListener.java" afterPath="$PROJECT_DIR$/gen/summerDuckBaseListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/summerDuckBaseVisitor.java" afterPath="$PROJECT_DIR$/gen/summerDuckBaseVisitor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/summerDuckListener.java" afterPath="$PROJECT_DIR$/gen/summerDuckListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/summerDuckParser.java" afterPath="$PROJECT_DIR$/gen/summerDuckParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/code.txt" afterPath="$PROJECT_DIR$/out/production/SummerDuck/code.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/cuadruplos.txt" afterPath="$PROJECT_DIR$/out/production/SummerDuck/cuadruplos.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SummerDuck/summerDuck.g4" afterPath="$PROJECT_DIR$/out/production/SummerDuck/summerDuck.g4" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Compilador.java" afterPath="$PROJECT_DIR$/src/Compilador.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DirProcs.java" afterPath="$PROJECT_DIR$/src/DirProcs.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ExpresionesAritmeticas.java" afterPath="$PROJECT_DIR$/src/ExpresionesAritmeticas.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Instrucciones.java" afterPath="$PROJECT_DIR$/src/Instrucciones.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MemVirtual.java" afterPath="$PROJECT_DIR$/src/MemVirtual.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Reglas.java" afterPath="$PROJECT_DIR$/src/Reglas.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TablaVariables.java" afterPath="$PROJECT_DIR$/src/TablaVariables.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/VM.java" afterPath="$PROJECT_DIR$/src/VM.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/summerDuck.g4" afterPath="$PROJECT_DIR$/summerDuck.g4" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/summerDuckVisitor.java" afterPath="$PROJECT_DIR$/gen/summerDuckVisitor.java" />
     </list>
     <ignored path="SummerDuck.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -184,7 +109,7 @@
       <file leaf-file-name="summerDuckParser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gen/summerDuckParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
+            <state relative-caret-position="1312">
               <caret line="897" column="0" selection-start-line="897" selection-start-column="0" selection-end-line="897" selection-end-column="0" />
               <folding />
             </state>
@@ -286,8 +211,10 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1280" />
-    <option name="height" value="800" />
+    <option name="x" value="36" />
+    <option name="y" value="23" />
+    <option name="width" value="1087" />
+    <option name="height" value="672" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -375,7 +302,6 @@
     <property name="last_directory_selection" value="$PROJECT_DIR$/src" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -684,7 +610,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <frame x="36" y="23" width="1087" height="672" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -700,14 +626,14 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17285945" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20478469" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="ANTLR Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32931036" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24975985" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.50344825" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1173,7 +1099,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gen/summerDuckParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
+        <state relative-caret-position="1312">
           <caret line="897" column="0" selection-start-line="897" selection-start-column="0" selection-end-line="897" selection-end-column="0" />
           <folding />
         </state>

@@ -297,4 +297,11 @@ public class summerDuckBaseVisitor<T> extends AbstractParseTreeVisitor<T> implem
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitFunctioncallaux(summerDuckParser.FunctioncallauxContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitFunctioncallaux2(summerDuckParser.Functioncallaux2Context ctx) { return visitChildren(ctx); }
 }

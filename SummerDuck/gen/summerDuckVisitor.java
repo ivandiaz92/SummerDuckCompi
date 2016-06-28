@@ -255,4 +255,10 @@ public interface summerDuckVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitFunctioncallaux(summerDuckParser.FunctioncallauxContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link summerDuckParser#functioncallaux2}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctioncallaux2(summerDuckParser.Functioncallaux2Context ctx);
 }
